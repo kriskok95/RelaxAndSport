@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Models.TrainingAppointment
+﻿namespace RelaxAndSport.Domain.Models.TrainingSchedule
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
@@ -11,10 +11,10 @@
             string firstName,
             string lastName)
         {
-            this.Validate(firstName, lastName);
+            Validate(firstName, lastName);
 
-            this.FirstName = firstName;
-            this.LastName = lastName;
+            FirstName = firstName;
+            LastName = lastName;
         }
 
         public string FirstName { get; private set; }
@@ -23,8 +23,8 @@
 
         private void Validate(string firstName, string lastName)
         {
-            this.ValidateFirstName(firstName);
-            this.ValidateLastName(lastName);
+            ValidateFirstName(firstName);
+            ValidateLastName(lastName);
         }
 
         private void ValidateFirstName(string firstName)

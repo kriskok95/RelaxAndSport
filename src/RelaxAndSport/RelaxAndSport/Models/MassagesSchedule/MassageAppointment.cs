@@ -1,20 +1,19 @@
-﻿namespace RelaxAndSport.Domain.Models.Massages
+﻿namespace RelaxAndSport.Domain.Models.MassagesSchedule
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
-    using RelaxAndSport.Domain.Models.MassageAppointments;
     using System;
 
-    public class MassageAppointment : Entity<int>, IAggregateRoot
+    public class MassageAppointment : Entity<int>
     {
         internal MassageAppointment(
             Massage massage,
             DateTime date)
         {
-            this.Validate(date);
+            Validate(date);
 
-            this.Massage = massage;
-            this.Date = date;
+            Massage = massage;
+            Date = date;
         }
 
         public Massage Massage { get; private set; }
@@ -23,7 +22,7 @@
 
         private void Validate(DateTime date)
         {
-            this.ValidateDate(date);
+            ValidateDate(date);
         }
 
         private void ValidateDate(DateTime date)

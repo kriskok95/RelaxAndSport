@@ -1,10 +1,10 @@
-﻿namespace RelaxAndSport.Domain.Models.MassageAppointments
+﻿namespace RelaxAndSport.Domain.Models.MassagesSchedule
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
     using static ModelConstants.Massage;
 
-    public class Massage : Entity<int>, IAggregateRoot
+    public class Massage : Entity<int>
     {
         internal Massage(
             Type type,

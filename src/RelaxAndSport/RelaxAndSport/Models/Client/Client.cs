@@ -2,8 +2,8 @@
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
-    using RelaxAndSport.Domain.Models.Massages;
-    using RelaxAndSport.Domain.Models.TrainingAppointment;
+    using RelaxAndSport.Domain.Models.MassagesSchedule;
+    using RelaxAndSport.Domain.Models.TrainingSchedule;
     using System.Collections.Generic;
     using System.Linq;
     using static ModelConstants.Common;

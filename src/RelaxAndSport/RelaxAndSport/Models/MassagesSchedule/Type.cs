@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Models.MassageAppointments
+﻿namespace RelaxAndSport.Domain.Models.MassagesSchedule
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;

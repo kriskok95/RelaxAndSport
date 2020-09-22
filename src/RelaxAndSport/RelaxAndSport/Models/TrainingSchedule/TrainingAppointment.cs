@@ -1,19 +1,19 @@
-﻿namespace RelaxAndSport.Domain.Models.TrainingAppointment
+﻿namespace RelaxAndSport.Domain.Models.TrainingSchedule
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
     using System;
 
-    public class TrainingAppointment : Entity<int>, IAggregateRoot
+    public class TrainingAppointment : Entity<int>
     {
         internal TrainingAppointment(
             Training training,
             DateTime date)
         {
-            this.Validate(date);
+            Validate(date);
 
-            this.Training = training;
-            this.Date = date;
+            Training = training;
+            Date = date;
         }
 
         public Training Training { get; private set; }
@@ -22,12 +22,12 @@
 
         private void Validate(DateTime date)
         {
-            this.ValidateDate(date);
+            ValidateDate(date);
         }
 
         private void ValidateDate(DateTime date)
             => Guard.ForValidDate<InvalidTrainingAppointmentException>(date);
-            
-      
+
+
     }
 }

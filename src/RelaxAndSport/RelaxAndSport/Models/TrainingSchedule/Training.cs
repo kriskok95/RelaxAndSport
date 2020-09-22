@@ -1,18 +1,18 @@
-﻿namespace RelaxAndSport.Domain.Models.TrainingAppointment
+﻿namespace RelaxAndSport.Domain.Models.TrainingSchedule
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
 
-    public class Training : Entity<int>, IAggregateRoot
+    public class Training : Entity<int>
     {
         internal Training(
             string type,
             Trainer trainer)
         {
-            this.Validate(type);
+            Validate(type);
 
-            this.Type = type;
-            this.Trainer = trainer;
+            Type = type;
+            Trainer = trainer;
         }
 
         public string Type { get; private set; }
@@ -21,7 +21,7 @@
 
         private void Validate(string type)
         {
-            this.ValidateType(type);
+            ValidateType(type);
         }
 
         private void ValidateType(string type)
