@@ -4,7 +4,7 @@
     using RelaxAndSport.Domain.Exceptions;
     using System;
 
-    public class TrainingAppointment : Entity<int>
+    public class TrainingAppointment : Entity<int>, IAggregateRoot
     {
         internal TrainingAppointment(
             Training training,

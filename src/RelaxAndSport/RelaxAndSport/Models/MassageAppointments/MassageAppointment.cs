@@ -5,7 +5,7 @@
     using RelaxAndSport.Domain.Models.MassageAppointments;
     using System;
 
-    public class MassageAppointment : Entity<int>
+    public class MassageAppointment : Entity<int>, IAggregateRoot
     {
         internal MassageAppointment(
             Massage massage,

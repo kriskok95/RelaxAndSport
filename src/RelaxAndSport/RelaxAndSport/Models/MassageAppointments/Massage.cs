@@ -4,7 +4,7 @@
     using RelaxAndSport.Domain.Exceptions;
     using static ModelConstants.Massage;
 
-    public class Massage : Entity<int>
+    public class Massage : Entity<int>, IAggregateRoot
     {
         internal Massage(
             Type type,

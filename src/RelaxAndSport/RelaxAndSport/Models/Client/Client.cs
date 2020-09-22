@@ -8,7 +8,7 @@
     using System.Linq;
     using static ModelConstants.Common;
 
-    public class Client : Entity<int>
+    public class Client : Entity<int>, IAggregateRoot
     {
         private readonly HashSet<MassageAppointment> massageAppointments;
         private readonly HashSet<TrainingAppointment> trainingAppointments;

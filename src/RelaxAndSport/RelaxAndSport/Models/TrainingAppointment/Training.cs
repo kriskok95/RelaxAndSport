@@ -3,7 +3,7 @@
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Exceptions;
 
-    public class Training : Entity<int>
+    public class Training : Entity<int>, IAggregateRoot
     {
         internal Training(
             string type,
