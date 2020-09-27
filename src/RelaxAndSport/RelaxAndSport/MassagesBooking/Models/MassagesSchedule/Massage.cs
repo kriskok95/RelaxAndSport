@@ -1,8 +1,9 @@
-﻿namespace RelaxAndSport.Domain.Models.MassagesSchedule
+﻿namespace RelaxAndSport.Domain.MassagesBooking.Models.MassagesSchedule
 {
     using RelaxAndSport.Domain.Common;
-    using RelaxAndSport.Domain.Exceptions;
-    using static ModelConstants.Massage;
+    using RelaxAndSport.Domain.MassagesBooking.Exceptions;
+
+    using static RelaxAndSport.Domain.Common.Models.ModelConstants.Massage;
 
     public class Massage : Entity<int>
     {

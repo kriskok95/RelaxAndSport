@@ -1,5 +1,7 @@
-﻿namespace RelaxAndSport.Domain.Exceptions
+﻿namespace RelaxAndSport.Domain.MassagesBooking.Exceptions
 {
+    using RelaxAndSport.Domain.Common.Exceptions;
+
     public class InvalidMassageException : BaseDomainException
     {
         public InvalidMassageException()

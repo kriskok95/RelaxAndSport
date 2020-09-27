@@ -1,5 +1,7 @@
-﻿namespace RelaxAndSport.Domain.Exceptions
+﻿namespace RelaxAndSport.Domain.Common.Exceptions
 {
+    using RelaxAndSport.Domain.Common;
+
     public class InvalidPhoneNumberException : BaseDomainException
     {
         public InvalidPhoneNumberException()

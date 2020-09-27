@@ -1,9 +1,9 @@
-﻿namespace RelaxAndSport.Domain.Models.Client
+﻿namespace RelaxAndSport.Domain.Common.Models.Client
 {
     using RelaxAndSport.Domain.Common;
-    using RelaxAndSport.Domain.Exceptions;
-    using RelaxAndSport.Domain.Models.MassagesSchedule;
-    using RelaxAndSport.Domain.Models.TrainingSchedule;
+    using RelaxAndSport.Domain.Common.Exceptions;
+    using RelaxAndSport.Domain.MassagesBooking.Models.MassagesSchedule;
+    using RelaxAndSport.Domain.TrainingsBooking.Models.TrainingSchedule;
     using System.Collections.Generic;
     using System.Linq;
     using static ModelConstants.Common;

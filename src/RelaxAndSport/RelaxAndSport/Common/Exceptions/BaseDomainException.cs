@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Exceptions
+﻿namespace RelaxAndSport.Domain.Common.Exceptions
 {
     using System;
 
@@ -8,8 +8,8 @@
 
         public string Error
         {
-            get => this.error ?? base.Message;
-            set => this.error = value;
+            get => error ?? base.Message;
+            set => error = value;
         }
     }
 }

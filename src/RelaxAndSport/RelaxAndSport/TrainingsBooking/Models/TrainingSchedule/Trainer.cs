@@ -1,9 +1,8 @@
-﻿namespace RelaxAndSport.Domain.Models.TrainingSchedule
+﻿namespace RelaxAndSport.Domain.TrainingsBooking.Models.TrainingSchedule
 {
     using RelaxAndSport.Domain.Common;
-    using RelaxAndSport.Domain.Exceptions;
-
-    using static ModelConstants.Common;
+    using RelaxAndSport.Domain.TrainingsBooking.Exceptions;
+    using static RelaxAndSport.Domain.Common.Models.ModelConstants.Common;
 
     public class Trainer : Entity<int>
     {

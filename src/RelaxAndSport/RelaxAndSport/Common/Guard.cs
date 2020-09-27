@@ -1,7 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Common
 {
-    using RelaxAndSport.Domain.Exceptions;
-    using RelaxAndSport.Domain.Models;
+    using RelaxAndSport.Domain.Common.Exceptions;
+    using RelaxAndSport.Domain.Common.Models;
     using System;
 
     public static class Guard
@@ -50,6 +50,17 @@
             }
 
             ThrowException<TException>($"{name} must be between {min} and {max}.");
+        }
+
+        public static void AgainstDateRange<TException>(DateTime date, DateTime dateToCompare, string name = "Value")
+            where TException : BaseDomainException, new()
+        {
+            if(date > dateToCompare)
+            {
+                return;
+            }
+
+            ThrowException<TException>($"{name} with date {date} must be after {dateToCompare}.");
         }
 
         public static void ForValidUrl<TException>(string url, string name = "Value")

@@ -1,4 +1,6 @@
-﻿namespace RelaxAndSport.Domain.Exceptions
+﻿using RelaxAndSport.Domain.Common;
+
+namespace RelaxAndSport.Domain.Common.Exceptions
 {
     public class InvalidClientException : BaseDomainException
     {

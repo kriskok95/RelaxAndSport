@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Models
+﻿namespace RelaxAndSport.Domain.Common.Models
 {
     public class ModelConstants
     {
