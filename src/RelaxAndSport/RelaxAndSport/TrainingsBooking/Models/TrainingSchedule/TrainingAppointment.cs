@@ -2,6 +2,7 @@
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.TrainingsBooking.Exceptions;
+    using RelaxAndSport.Domain.TrainingsBooking.Models.Trainings;
     using System;
 
     public class TrainingAppointment : Entity<int>, IAggregateRoot

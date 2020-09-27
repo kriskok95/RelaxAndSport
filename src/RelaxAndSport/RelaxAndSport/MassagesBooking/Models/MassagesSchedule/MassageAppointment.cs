@@ -2,6 +2,7 @@
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.MassagesBooking.Exceptions;
+    using RelaxAndSport.Domain.MassagesBooking.Models.Massages;
     using System;
 
     public class MassageAppointment : Entity<int>, IAggregateRoot

@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.TrainingsBooking.Models.TrainingSchedule
+﻿namespace RelaxAndSport.Domain.TrainingsBooking.Models.Trainings
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.TrainingsBooking.Exceptions;

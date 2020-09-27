@@ -57,7 +57,7 @@
         {
             if(date > dateToCompare)
             {
-                return;
+                return; 
             }
 
             ThrowException<TException>($"{name} with date {date} must be after {dateToCompare}.");

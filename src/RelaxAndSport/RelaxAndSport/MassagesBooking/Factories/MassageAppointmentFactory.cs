@@ -1,6 +1,6 @@
 ﻿namespace RelaxAndSport.Domain.MassagesBooking.Factories
 {
-    using RelaxAndSport.Domain.MassagesBooking.Models.MassagesSchedule;
+    using RelaxAndSport.Domain.MassagesBooking.Models.Massages;
     using System;
 
     public class MassageAppointmentFactory : IMassageAppointmentFactory

@@ -1,9 +1,9 @@
-﻿namespace RelaxAndSport.Domain.TrainingsBooking.Models.TrainingSchedule
+﻿namespace RelaxAndSport.Domain.TrainingsBooking.Models.Trainings
 {
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.TrainingsBooking.Exceptions;
 
-    public class Training : Entity<int>
+    public class Training : Entity<int>, IAggregateRoot
     {
         internal Training(
             string type,
