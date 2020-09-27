@@ -5,7 +5,7 @@
     using RelaxAndSport.Domain.TrainingsBooking.Models.Trainings;
     using System;
 
-    public class TrainingAppointment : Entity<int>, IAggregateRoot
+    public class TrainingAppointment : Entity<int>
     {
         internal TrainingAppointment(
             Training training,
