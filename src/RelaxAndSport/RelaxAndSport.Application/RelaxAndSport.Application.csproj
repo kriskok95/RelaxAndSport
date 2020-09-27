@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="MassagesBooking\" />
+    <Folder Include="TrainingsBooking\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RelaxAndSport\RelaxAndSport.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
