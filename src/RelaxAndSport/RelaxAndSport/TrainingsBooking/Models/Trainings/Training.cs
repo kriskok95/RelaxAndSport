@@ -13,14 +13,16 @@
             Trainer trainer,
             DateTime date,
             int slots,
+            decimal price,
             bool isRepeated)
         {
-            Validate(type, date, slots);
+            Validate(type, date, slots, price);
 
             this.Type = type;
             this.Trainer = trainer;
             this.Date = date;
             this.Slots = slots;
+            this.Price = price;
             this.IsRepeated = isRepeated;
         }
 
@@ -32,16 +34,20 @@
 
         public int Slots { get; private set; }
 
+        public decimal Price { get; private set; }
+
         public bool IsRepeated { get; private set; }
 
         private void Validate(
             string type,
             DateTime date,
-            int slots)
+            int slots,
+            decimal price)
         {
             ValidateType(type);
             ValidateDate(date);
             ValidateSlots(slots);
+            ValidatePrice(price);
         }
 
         private void ValidateType(string type)
@@ -60,5 +66,12 @@
                 slots,
                 MinNumberOfSlots,
                 MaxNumberOfSlots);
+
+        private void ValidatePrice(decimal price)
+            => Guard.AgainstOutOfRange<InvalidTrainingException>(
+                price,
+                MinPrice,
+                MaxPrice,
+                nameof(price));
     }
 }

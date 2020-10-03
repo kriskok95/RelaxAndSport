@@ -26,6 +26,8 @@
         {
             public const int MinNumberOfSlots = 1;
             public const int MaxNumberOfSlots = 30;
+            public const decimal MinPrice = 0;
+            public const decimal MaxPrice = 50;
         }
 
         public class PhoneNumber
