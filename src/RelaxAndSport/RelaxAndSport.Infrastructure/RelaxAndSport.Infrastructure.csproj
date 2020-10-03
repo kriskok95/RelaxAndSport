@@ -18,4 +18,8 @@
     <ProjectReference Include="..\RelaxAndSport\RelaxAndSport.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Persistance\Migrations\" />
+  </ItemGroup>
+
 </Project>
