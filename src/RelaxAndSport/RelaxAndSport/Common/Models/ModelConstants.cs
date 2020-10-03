@@ -22,6 +22,12 @@
             public const decimal MaxPrice = 200;
         }
 
+        public class Training
+        {
+            public const int MinNumberOfSlots = 1;
+            public const int MaxNumberOfSlots = 30;
+        }
+
         public class PhoneNumber
         {
             public const int MinPhoneNumberLength = 5;

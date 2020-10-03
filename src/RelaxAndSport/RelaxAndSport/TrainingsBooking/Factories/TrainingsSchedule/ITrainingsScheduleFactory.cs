@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.TrainingsBooking.Factories
+﻿namespace RelaxAndSport.Domain.TrainingsBooking.Factories.TrainingsSchedule
 {
     using RelaxAndSport.Domain.TrainingsBooking.Models.TrainingSchedule;
 
