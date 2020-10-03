@@ -4,7 +4,7 @@
 
     public class TrainingScheduleFactory : ITrainingsScheduleFactory
     {
-        public TrainingSchedule Build()
-            => new TrainingSchedule();
+        public TrainingsSchedule Build()
+            => new TrainingsSchedule();
     }
 }

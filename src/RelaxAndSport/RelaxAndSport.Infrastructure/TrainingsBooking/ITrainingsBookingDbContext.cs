@@ -13,6 +13,6 @@
 
         DbSet<TrainingAppointment> TrainingAppointments { get; }
 
-        DbSet<TrainingSchedule> TrainingSchedules { get; }
+        DbSet<TrainingsSchedule> TrainingsSchedules { get; }
     }
 }

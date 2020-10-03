@@ -4,11 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class TrainingSchedule : Entity<int>, IAggregateRoot
+    public class TrainingsSchedule : Entity<int>, IAggregateRoot
     {
         private readonly HashSet<TrainingAppointment> trainingAppointments;
 
-        internal TrainingSchedule()
+        internal TrainingsSchedule()
         {
             this.trainingAppointments = new HashSet<TrainingAppointment>();
         }

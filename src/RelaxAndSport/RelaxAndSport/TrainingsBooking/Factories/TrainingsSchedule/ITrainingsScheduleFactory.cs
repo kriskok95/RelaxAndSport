@@ -3,7 +3,7 @@
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.TrainingsBooking.Models.TrainingSchedule;
 
-    public interface ITrainingsScheduleFactory : IFactory<TrainingSchedule>
+    public interface ITrainingsScheduleFactory : IFactory<TrainingsSchedule>
     {
     }
 }
