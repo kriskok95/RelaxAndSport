@@ -4,6 +4,7 @@
     using RelaxAndSport.Domain.MassagesBooking.Exceptions;
 
     using static RelaxAndSport.Domain.Common.Models.ModelConstants.Common;
+    using static RelaxAndSport.Domain.Common.Models.ModelConstants.Massage;
 
     public class Type : Entity<int>
     {
@@ -28,8 +29,8 @@
         private void ValidateName(string name)
             => Guard.ForStringLength<InvalidMassageException>(
                 name,
-                MinNameLength,
-                MaxNameLength,
+                MinDescriptionLength,
+                MaxDescriptionLength,
                 nameof(Name));
 
         private void ValidateDescription(string description)

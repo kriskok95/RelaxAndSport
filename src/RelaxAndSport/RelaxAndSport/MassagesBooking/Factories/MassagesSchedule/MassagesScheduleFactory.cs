@@ -1,7 +1,8 @@
-﻿namespace RelaxAndSport.Domain.MassagesBooking.Factories
+﻿namespace RelaxAndSport.Domain.MassagesBooking.Factories.MassagesSchedule
 {
     using RelaxAndSport.Domain.MassagesBooking.Models.MassagesSchedule;
-    public class MassageScheduleFactory : IMassagesScheduleFactory
+
+    public class MassagesScheduleFactory : IMassagesScheduleFactory
     {
         public MassagesSchedule Build()
             => new MassagesSchedule();

@@ -16,6 +16,10 @@
         {
             public const int MinDuration = 5;
             public const int MaxDuration = 240;
+            public const int MinDescriptionLength = 10;
+            public const int MaxDescriptionLength = 1000;
+            public const decimal MinPrice = 0;
+            public const decimal MaxPrice = 200;
         }
 
         public class PhoneNumber

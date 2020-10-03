@@ -10,21 +10,22 @@
         internal Massage(
             Type type,
             int duration,
-            string description)
+            decimal price)
         {
-            Validate(duration);
+            Validate(duration, price);
 
-            Type = type;
-            Description = description;
+            this.Type = type;
+            this.Price = price;
         }
 
         public Type Type { get; private set; }
 
-        public string Description { get; private set; }
+        public decimal Price { get; private set; }
 
-        private void Validate(int duration)
+        private void Validate(int duration, decimal price)
         {
             ValidateDuration(duration);
+            ValidatePrice(price);
         }
 
         private void ValidateDuration(int duration)
@@ -33,5 +34,12 @@
                 MinDuration,
                 MaxDuration,
                 nameof(duration));
+
+        private void ValidatePrice(decimal price)
+            => Guard.AgainstOutOfRange<InvalidMassageException>(
+                price,
+                MinPrice,
+                MaxPrice,
+                nameof(price));
     }
 }
