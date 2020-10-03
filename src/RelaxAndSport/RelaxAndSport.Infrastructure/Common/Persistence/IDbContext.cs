@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Infrastructure.Common.Persistance
+﻿namespace RelaxAndSport.Infrastructure.Common.Persistence
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.ChangeTracking;

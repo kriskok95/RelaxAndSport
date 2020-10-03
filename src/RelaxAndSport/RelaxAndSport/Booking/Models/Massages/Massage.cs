@@ -3,30 +3,54 @@
     using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Common;
 
+    using static RelaxAndSport.Domain.Common.Models.ModelConstants.Common;
     using static RelaxAndSport.Domain.Common.Models.ModelConstants.Massage;
 
     public class Massage : Entity<int>, IAggregateRoot
     {
         internal Massage(
-            Type type,
+            string category,
+            string description,
             int duration,
             decimal price)
         {
-            Validate(duration, price);
+            Validate(category, description, duration, price);
 
-            this.Type = type;
+            this.Category = category;
+            this.Description = description;
+            this.Duration = duration;
             this.Price = price;
         }
 
-        public Type Type { get; private set; }
+        public string Category { get; private set; }
+
+        public string Description { get; private set; }
 
         public decimal Price { get; private set; }
 
-        private void Validate(int duration, decimal price)
+        public int Duration { get; private set; }
+
+        private void Validate(string category, string description, int duration, decimal price)
         {
+            ValidateCategory(category);
+            ValidateDescription(description);
             ValidateDuration(duration);
             ValidatePrice(price);
         }
+
+        private void ValidateCategory(string category)
+            => Guard.ForStringLength<InvalidMassageException>(
+                category,
+                MinNameLength,
+                MaxNameLength,
+                nameof(category));
+
+        private void ValidateDescription(string description)
+            => Guard.ForStringLength<InvalidMassageException>(
+                description,
+                MinDescriptionLength,
+                MaxDescriptionLength,
+                nameof(description));
 
         private void ValidateDuration(int duration)
             => Guard.AgainstOutOfRange<InvalidMassageException>(

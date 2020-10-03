@@ -3,7 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.Massages;
     using RelaxAndSport.Domain.Booking.Models.Massages;
-    using RelaxAndSport.Infrastructure.Common.Persistance;
+    using RelaxAndSport.Infrastructure.Common.Persistence;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -18,7 +18,6 @@
         public async Task<Massage> Find(int id, CancellationToken cancellationToken = default)
             => await this
             .All()
-            .Include(x => x.Type)
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
 
@@ -42,10 +41,5 @@
 
             return true;
         }
-
-        public async Task<Type> GetType(int id, CancellationToken cancellationToken = default)
-            => await this.Data
-            .Types
-            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 }

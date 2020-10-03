@@ -5,9 +5,9 @@
 
     public interface IMassagesFactory : IFactory<Massage>
     {
-        IMassagesFactory WithType(string name, string description);
+        IMassagesFactory WithCategory(string category);
 
-        IMassagesFactory WithType(Type type);
+        IMassagesFactory WithDescription(string description);
 
         IMassagesFactory WithDuration(int duration);
 

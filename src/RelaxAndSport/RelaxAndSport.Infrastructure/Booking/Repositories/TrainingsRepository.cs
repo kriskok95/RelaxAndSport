@@ -4,7 +4,7 @@ namespace RelaxAndSport.Infrastructure.Booking.Repositories
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.Trainings;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
-    using RelaxAndSport.Infrastructure.Common.Persistance;
+    using RelaxAndSport.Infrastructure.Common.Persistence;
     using System.Threading;
     using System.Threading.Tasks;
 

@@ -10,7 +10,5 @@
         Task<Massage> Find(int id, CancellationToken cancellationToken = default);
 
         Task<bool> Delete(int id, CancellationToken cancellationToken = default);
-
-        Task<Type> GetType(int id, CancellationToken cancellationToken = default);
     }
 }

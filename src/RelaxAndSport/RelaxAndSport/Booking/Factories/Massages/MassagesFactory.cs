@@ -5,21 +5,28 @@
 
     internal class MassagesFactory : IMassagesFactory
     {
-        private Type type = default!;
+        private string category = default!;
+        private string description = default!;
         private int duration = default;
         private decimal price = default;
 
+        private bool categorySet = false;
+        private bool descriptionSet = false;
         private bool typeSet = false;
         private bool durationSet = false;
         private bool priceSet = false;
 
-        public IMassagesFactory WithType(string name, string description)
-            => this.WithType(new Type(name, description));
-
-        public IMassagesFactory WithType(Type type)
+        public IMassagesFactory WithCategory(string category)
         {
-            this.type = type;
-            this.typeSet = true;
+            this.category = category;
+            this.categorySet = true;
+            return this;
+        }
+
+        public IMassagesFactory WithDescription(string description)
+        {
+            this.description = description;
+            this.descriptionSet = true;
             return this;
         }
 
@@ -39,13 +46,19 @@
 
         public Massage Build()
         {
-            if (!this.typeSet || !this.durationSet || ! this.priceSet)
+            if (
+                !this.categorySet ||
+                !this.descriptionSet ||
+                !this.typeSet || 
+                !this.durationSet || 
+                ! this.priceSet)
             {
                 throw new InvalidMassageException("Massage type, duration and price must have a value.");
             }
 
             return new Massage(
-                this.type,
+                this.category,
+                this.description,
                 this.duration,
                 this.price);
         }

@@ -5,14 +5,12 @@ namespace RelaxAndSport.Infrastructure.Booking
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
-    using RelaxAndSport.Domain.Booking.Models.TrainingSchedule;
-    using RelaxAndSport.Infrastructure.Common.Persistance;
+    using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
+    using RelaxAndSport.Infrastructure.Common.Persistence;
 
     public interface IBookingDbContext : IDbContext
     {
         DbSet<Massage> Massages { get; }
-
-        DbSet<Type> Types { get; }
 
         DbSet<MassageAppointment> MassageAppointments { get; }
 

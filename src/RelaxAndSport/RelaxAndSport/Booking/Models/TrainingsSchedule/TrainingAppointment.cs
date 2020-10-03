@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Booking.Models.TrainingSchedule
+﻿namespace RelaxAndSport.Domain.Booking.Models.TrainingsSchedule
 {
     using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
@@ -14,6 +14,13 @@
             Validate(date);
 
             Training = training;
+            Date = date;
+        }
+
+        internal TrainingAppointment(
+            DateTime date)
+        {
+            Training = default!;
             Date = date;
         }
 

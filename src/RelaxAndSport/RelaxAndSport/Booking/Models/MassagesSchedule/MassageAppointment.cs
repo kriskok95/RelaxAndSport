@@ -9,35 +9,34 @@
     {
         internal MassageAppointment(
             Massage massage,
-            DateTime startDate,
-            DateTime endDate)
+            DateTime startDate)
         {
-            Validate(startDate, endDate);
+            Validate(startDate);
 
             Massage = massage;
             this.StartDate = startDate;
-            this.EndDate = EndDate;
+        }
+
+        private MassageAppointment(
+            DateTime startDate)
+        {
+            Validate(startDate);
+
+            Massage = default!;
+            this.StartDate = startDate;
         }
 
         public Massage Massage { get; private set; }
 
         public DateTime StartDate { get; private set; }
 
-        public DateTime EndDate { get; private set; }
 
-        private void Validate(DateTime startDate, DateTime endDate)
+        private void Validate(DateTime startDate)
         {
             ValidateStartDate(startDate);
-            ValidateEndDate(endDate);
         }
 
         private void ValidateStartDate(DateTime date)
             => Guard.ForValidDate<IvalidMassageAppointmentException>(date);
-
-        private void ValidateEndDate(DateTime endDate)
-            => Guard.AgainstDateRange<InvalidMassageException>(
-                endDate, 
-                this.StartDate,
-                nameof(endDate));
     }
 }

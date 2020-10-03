@@ -26,6 +26,20 @@
             this.IsRepeated = isRepeated;
         }
 
+        private Training(
+            string type,
+            int slots,
+            decimal price,
+            bool isRepeated)
+        {
+            this.Type = type;
+            this.Trainer = default!;
+            this.Date = default;
+            this.Slots = slots;
+            this.Price = price;
+            this.IsRepeated = isRepeated;
+        }
+
         public string Type { get; private set; }
 
         public Trainer Trainer { get; private set; }

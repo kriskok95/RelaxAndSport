@@ -1,7 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Client
 {
     using RelaxAndSport.Domain.Booking.Models.MassagesSchedule;
-    using RelaxAndSport.Domain.Booking.Models.TrainingSchedule;
+    using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Exceptions;
     using System.Collections.Generic;
@@ -24,6 +24,19 @@
             FirstName = firstName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
+
+            massageAppointments = new HashSet<MassageAppointment>();
+            trainingAppointments = new HashSet<TrainingAppointment>();
+        }
+
+        private Client(
+            string firstName,
+            string lastName)
+        {
+
+            FirstName = firstName;
+            LastName = lastName;
+            PhoneNumber = default!;
 
             massageAppointments = new HashSet<MassageAppointment>();
             trainingAppointments = new HashSet<TrainingAppointment>();
