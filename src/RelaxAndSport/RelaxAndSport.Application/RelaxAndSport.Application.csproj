@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="TrainingsBooking\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RelaxAndSport\RelaxAndSport.Domain.csproj" />
   </ItemGroup>
 
