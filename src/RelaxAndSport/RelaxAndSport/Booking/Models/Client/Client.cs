@@ -1,6 +1,6 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Client
 {
-    using RelaxAndSport.Domain.Booking.Models.Massages;
+    using RelaxAndSport.Domain.Booking.Events;
     using RelaxAndSport.Domain.Booking.Models.MassagesSchedule;
     using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
     using RelaxAndSport.Domain.Common;
@@ -79,11 +79,13 @@
         public void AddMassageAppointment(MassageAppointment massageAppointment)
         {
             this.massageAppointments.Add(massageAppointment);
+            this.RaiseEvent(new MassageAppointmentAddedEvent());
         }
 
         public void AddTrainingAppointment(TrainingAppointment trainingAppointment)
         {
             this.trainingAppointments.Add(trainingAppointment);
+            this.RaiseEvent(new TrainingAppointmentAddedEvent());
         }
 
         private void Validate(string firstName, string lastName)
