@@ -1,6 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.TrainingsSchedule
 {
     using RelaxAndSport.Domain.Common;
+    using RelaxAndSport.Domain.Common.Models;
     using System.Collections.Generic;
     using System.Linq;
 

@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Common
+﻿namespace RelaxAndSport.Domain.Common.Models
 {
     public abstract class Entity<TId>
         where TId : struct

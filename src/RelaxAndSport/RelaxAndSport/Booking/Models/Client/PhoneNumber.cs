@@ -1,7 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Client
 {
-    using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Exceptions;
+    using RelaxAndSport.Domain.Common.Models;
     using System.Text.RegularExpressions;
     using static RelaxAndSport.Domain.Common.Models.ModelConstants.PhoneNumber;
 

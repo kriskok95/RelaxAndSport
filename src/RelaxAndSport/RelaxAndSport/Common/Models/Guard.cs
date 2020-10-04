@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Domain.Common
+﻿namespace RelaxAndSport.Domain.Common.Models
 {
     using RelaxAndSport.Domain.Common.Exceptions;
     using RelaxAndSport.Domain.Common.Models;

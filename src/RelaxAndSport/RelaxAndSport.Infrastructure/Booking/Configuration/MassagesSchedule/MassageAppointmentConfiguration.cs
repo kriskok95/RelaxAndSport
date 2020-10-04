@@ -12,8 +12,13 @@
                 .HasKey(ma => ma.Id);
 
             builder
-                .Property(ma => ma.StartDate)
-                .IsRequired();
+                .OwnsOne(ma => ma.TimeRange, t =>
+                {
+                    t.WithOwner();
+
+                    t.Property(tr => tr.Start);
+                    t.Property(tr => tr.End);
+                });
         }
     }
 }

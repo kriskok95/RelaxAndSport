@@ -1,42 +1,26 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.MassagesSchedule
 {
-    using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.Massages;
-    using RelaxAndSport.Domain.Common;
-    using System;
+    using RelaxAndSport.Domain.Common.Models;
 
     public class MassageAppointment : Entity<int>
     {
         internal MassageAppointment(
             Massage massage,
-            DateTime startDate)
+            DateTimeRange timeRange)
         {
-            Validate(startDate);
-
-            Massage = massage;
-            this.StartDate = startDate;
+            this.Massage = massage;
+            this.TimeRange = timeRange;
         }
 
-        private MassageAppointment(
-            DateTime startDate)
+        private MassageAppointment()
         {
-            Validate(startDate);
-
-            Massage = default!;
-            this.StartDate = startDate;
+            this.Massage = default!;
+            this.TimeRange = default!;
         }
 
         public Massage Massage { get; private set; }
 
-        public DateTime StartDate { get; private set; }
-
-
-        private void Validate(DateTime startDate)
-        {
-            ValidateStartDate(startDate);
-        }
-
-        private void ValidateStartDate(DateTime date)
-            => Guard.ForValidDate<IvalidMassageAppointmentException>(date);
+        public DateTimeRange TimeRange { get; private set; }
     }
 }

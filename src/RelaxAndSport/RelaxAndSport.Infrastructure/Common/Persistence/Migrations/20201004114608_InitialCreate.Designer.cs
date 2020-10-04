@@ -10,7 +10,7 @@ using RelaxAndSport.Infrastructure.Common.Persistence;
 namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 {
     [DbContext(typeof(RelaxAndSportDbContext))]
-    [Migration("20201003193004_InitialCreate")]
+    [Migration("20201004114608_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -218,9 +218,6 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.Property<int>("MassageId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
@@ -311,9 +308,6 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 
                     b.Property<int?>("ClientId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("TrainingId")
                         .HasColumnType("int");
@@ -502,6 +496,27 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .HasForeignKey("MassageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsOne("RelaxAndSport.Domain.Common.Models.DateTimeRange", "TimeRange", b1 =>
+                        {
+                            b1.Property<int>("MassageAppointmentId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<DateTime>("End")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime>("Start")
+                                .HasColumnType("datetime2");
+
+                            b1.HasKey("MassageAppointmentId");
+
+                            b1.ToTable("MassageAppointments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("MassageAppointmentId");
+                        });
                 });
 
             modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.Trainings.Training", b =>
@@ -529,6 +544,27 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .HasForeignKey("TrainingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsOne("RelaxAndSport.Domain.Common.Models.DateTimeRange", "TimeRange", b1 =>
+                        {
+                            b1.Property<int>("TrainingAppointmentId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<DateTime>("End")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime>("Start")
+                                .HasColumnType("datetime2");
+
+                            b1.HasKey("TrainingAppointmentId");
+
+                            b1.ToTable("TrainingAppointments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("TrainingAppointmentId");
+                        });
                 });
 
             modelBuilder.Entity("RelaxAndSport.Infrastructure.Identity.User", b =>

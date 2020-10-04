@@ -1,6 +1,6 @@
 ﻿
 
-namespace RelaxAndSport.Domain.Common
+namespace RelaxAndSport.Domain.Common.Models
 {
     using System.Collections.Generic;
     using System.Linq;

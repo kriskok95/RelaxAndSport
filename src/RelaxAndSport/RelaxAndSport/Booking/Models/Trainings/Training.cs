@@ -2,6 +2,7 @@
 {
     using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Common;
+    using RelaxAndSport.Domain.Common.Models;
     using System;
 
     using static RelaxAndSport.Domain.Common.Models.ModelConstants.Training;

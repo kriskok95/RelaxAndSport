@@ -150,7 +150,8 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MassageId = table.Column<int>(nullable: false),
-                    StartDate = table.Column<DateTime>(nullable: false),
+                    TimeRange_Start = table.Column<DateTime>(nullable: true),
+                    TimeRange_End = table.Column<DateTime>(nullable: true),
                     ClientId = table.Column<int>(nullable: true),
                     MassageAppointmentId = table.Column<int>(nullable: true)
                 },
@@ -293,7 +294,8 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TrainingId = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
+                    TimeRange_Start = table.Column<DateTime>(nullable: true),
+                    TimeRange_End = table.Column<DateTime>(nullable: true),
                     AppointmentId = table.Column<int>(nullable: true),
                     ClientId = table.Column<int>(nullable: true)
                 },

@@ -3,37 +3,27 @@
     using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
     using RelaxAndSport.Domain.Common;
+    using RelaxAndSport.Domain.Common.Models;
     using System;
 
     public class TrainingAppointment : Entity<int>
     {
         internal TrainingAppointment(
             Training training,
-            DateTime date)
+            DateTimeRange timeRange)
         {
-            Validate(date);
-
-            Training = training;
-            Date = date;
+            this.Training = training;
+            this.TimeRange = timeRange;
         }
 
-        internal TrainingAppointment(
-            DateTime date)
+        internal TrainingAppointment()
         {
-            Training = default!;
-            Date = date;
+            this.Training = default!;
+            this.TimeRange = default!;
         }
 
         public Training Training { get; private set; }
 
-        public DateTime Date { get; private set; }
-
-        private void Validate(DateTime date)
-        {
-            ValidateDate(date);
-        }
-
-        private void ValidateDate(DateTime date)
-            => Guard.ForValidDate<InvalidTrainingAppointmentException>(date);
+        public DateTimeRange TimeRange { get; private set; }
     }
 }

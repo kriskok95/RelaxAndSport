@@ -1,7 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Trainings
 {
     using RelaxAndSport.Domain.Booking.Exceptions;
-    using RelaxAndSport.Domain.Common;
+    using RelaxAndSport.Domain.Common.Models;
     using static RelaxAndSport.Domain.Common.Models.ModelConstants.Common;
 
     public class Trainer : Entity<int>
