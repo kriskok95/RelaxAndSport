@@ -5,6 +5,8 @@ namespace RelaxAndSport.Startup
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using RelaxAndSport.Application;
+    using RelaxAndSport.Domain;
     using RelaxAndSport.Infrastructure;
 
     public class Startup
@@ -19,6 +21,8 @@ namespace RelaxAndSport.Startup
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                .AddDomain()
+                .AddApplication(this.Configuration)
                 .AddInfrastructure(this.Configuration)
                 .AddControllers();
         }
@@ -30,18 +34,18 @@ namespace RelaxAndSport.Startup
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
-            app.Initialize();
+            app
+                .UseHttpsRedirection()
+                .UseRouting()
+                .UseCors(options => options
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod())
+                .UseAuthentication()
+                .UseAuthorization()
+                .UseEndpoints(endpoints => endpoints
+                    .MapControllers())
+                .Initialize();
         }
     }
 }
