@@ -10,16 +10,16 @@
     public class Training : Entity<int>, IAggregateRoot
     {
         internal Training(
-            string type,
+            string category,
             Trainer trainer,
             DateTime date,
             int slots,
             decimal price,
             bool isRepeated)
         {
-            Validate(type, date, slots, price);
+            Validate(category, date, slots, price);
 
-            this.Type = type;
+            this.Category = category;
             this.Trainer = trainer;
             this.Date = date;
             this.Slots = slots;
@@ -28,12 +28,12 @@
         }
 
         private Training(
-            string type,
+            string category,
             int slots,
             decimal price,
             bool isRepeated)
         {
-            this.Type = type;
+            this.Category = category;
             this.Trainer = default!;
             this.Date = default;
             this.Slots = slots;
@@ -41,7 +41,7 @@
             this.IsRepeated = isRepeated;
         }
 
-        public string Type { get; private set; }
+        public string Category { get; private set; }
 
         public Trainer Trainer { get; private set; }
 
@@ -53,22 +53,68 @@
 
         public bool IsRepeated { get; private set; }
 
+        public Training UpdateCategory(string category) 
+        {
+            this.ValidateCategory(category);
+            this.Category = category;
+
+            return this;
+        }
+
+        public Training UpdateTrainer(Trainer trainer)
+        {
+            this.Trainer = trainer;
+
+            return this;
+        }
+
+        public Training UpdateDate(DateTime date)
+        {
+            this.ValidateDate(date);
+            this.Date = date;
+
+            return this;
+        }
+
+        public Training UpdateSlots(int slots)
+        {
+            this.ValidateSlots(slots);
+            this.Slots = slots;
+
+            return this;
+        }
+
+        public Training UpdatePrice(decimal price)
+        {
+            this.ValidatePrice(price);
+            this.Price = price;
+
+            return this;
+        }
+
+        public Training UpdateIsRepeated(bool isRepeated)
+        {
+            this.IsRepeated = isRepeated;
+
+            return this;
+        }
+
         private void Validate(
-            string type,
+            string category,
             DateTime date,
             int slots,
             decimal price)
         {
-            ValidateType(type);
+            ValidateCategory(category);
             ValidateDate(date);
             ValidateSlots(slots);
             ValidatePrice(price);
         }
 
-        private void ValidateType(string type)
+        private void ValidateCategory(string category)
             => Guard.AgainstEmptyString<InvalidTrainingException>(
-                type,
-                nameof(type));
+                category,
+                nameof(category));
 
         private void ValidateDate(DateTime date)
             => Guard.AgainstDateRange<InvalidTrainingException>(

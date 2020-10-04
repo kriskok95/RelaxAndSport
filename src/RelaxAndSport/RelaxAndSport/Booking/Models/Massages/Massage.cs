@@ -31,6 +31,37 @@
 
         public int Duration { get; private set; }
 
+        public Massage UpdateCategory(string category)
+        {
+            this.ValidateCategory(category);
+            this.Category = category;
+            return this;
+        }
+
+        public Massage UpdateDescription(string description)
+        {
+            this.ValidateDescription(description);
+            this.Description = description;
+
+            return this;
+        }
+
+        public Massage UpdatePrice(decimal price)
+        {
+            this.ValidatePrice(price);
+            this.Price = price;
+
+            return this;
+        }
+
+        public Massage UpdateDuration(int duration)
+        {
+            this.ValidateDuration(duration);
+            this.Duration = duration;
+
+            return this;
+        }
+
         private void Validate(string category, string description, int duration, decimal price)
         {
             ValidateCategory(category);

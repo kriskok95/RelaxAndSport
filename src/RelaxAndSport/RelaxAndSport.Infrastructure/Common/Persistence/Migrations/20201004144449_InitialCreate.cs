@@ -184,7 +184,7 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(nullable: false),
+                    Category = table.Column<string>(nullable: false),
                     TrainerId = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Slots = table.Column<int>(nullable: false),

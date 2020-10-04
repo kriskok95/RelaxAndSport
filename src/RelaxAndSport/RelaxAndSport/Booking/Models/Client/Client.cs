@@ -48,6 +48,8 @@
 
         public string LastName { get; private set; }
 
+        public string FullName { get { return $"{this.FirstName} {this.LastName}"; } }
+
         public PhoneNumber PhoneNumber { get; private set; }
 
         public IReadOnlyCollection<MassageAppointment> MassageAppointments => massageAppointments
@@ -60,32 +62,61 @@
 
         public Client UpdateFirstName(string firstName)
         {
+            this.ValidateFirstName(firstName);
             this.FirstName = firstName;
+
             return this;
         }
 
         public Client UpdateLastName(string lastName)
         {
+            this.ValidateLastName(lastName);
             this.LastName = lastName;
+
             return this;
         }
 
         public Client UpdatePhoneNumber(string phoneNumber)
         {
             this.PhoneNumber = phoneNumber;
+
             return this;
         }
 
-        public void AddMassageAppointment(MassageAppointment massageAppointment)
+        public MassageAppointment AddMassageAppointment(MassageAppointment massageAppointment)
         {
             this.massageAppointments.Add(massageAppointment);
             this.RaiseEvent(new MassageAppointmentAddedEvent());
+
+            return massageAppointment;
         }
+
+        public void RemoveMassageAppointment(MassageAppointment massageAppointment)
+        {
+            if(!this.massageAppointments.Any(ma => ma.Id == massageAppointment.Id))
+            {
+                throw new InvalidClientException($"{this.FullName} doesn't have massage appointment with Id: {massageAppointment.Id}.");
+            }
+
+            this.massageAppointments.Remove(massageAppointment);
+            this.RaiseEvent(new MassageAppointmentRemovedEvent());
+        } 
 
         public void AddTrainingAppointment(TrainingAppointment trainingAppointment)
         {
             this.trainingAppointments.Add(trainingAppointment);
             this.RaiseEvent(new TrainingAppointmentAddedEvent());
+        }
+
+        public void RemoveTrainingAppointment(TrainingAppointment trainingAppointment)
+        {
+            if(!this.trainingAppointments.Any(ta => ta.Id == trainingAppointment.Id))
+            {
+                throw new InvalidClientException($"{this.FullName} doesn't have training appointment with Id: {trainingAppointment.Id}.");
+            }
+
+            this.trainingAppointments.Remove(trainingAppointment);
+            this.RaiseEvent(new TrainingAppointmentRemovedEvent());
         }
 
         private void Validate(string firstName, string lastName)

@@ -10,7 +10,7 @@ using RelaxAndSport.Infrastructure.Common.Persistence;
 namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 {
     [DbContext(typeof(RelaxAndSportDbContext))]
-    [Migration("20201004114608_InitialCreate")]
+    [Migration("20201004144449_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -270,6 +270,10 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -284,10 +288,6 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 
                     b.Property<int>("TrainerId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

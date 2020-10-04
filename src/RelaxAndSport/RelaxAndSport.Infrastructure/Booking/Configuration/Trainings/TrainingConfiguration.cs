@@ -25,7 +25,7 @@
                 .IsRequired();
 
             builder
-                .Property(t => t.Type)
+                .Property(t => t.Category)
                 .IsRequired();
         }
     }
