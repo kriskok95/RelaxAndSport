@@ -1,5 +1,6 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Client
 {
+    using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Domain.Booking.Models.MassagesSchedule;
     using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
     using RelaxAndSport.Domain.Common;
@@ -56,6 +57,34 @@
         public IReadOnlyCollection<TrainingAppointment> TrainingAppointments => trainingAppointments
             .ToList()
             .AsReadOnly();
+
+        public Client UpdateFirstName(string firstName)
+        {
+            this.FirstName = firstName;
+            return this;
+        }
+
+        public Client UpdateLastName(string lastName)
+        {
+            this.LastName = lastName;
+            return this;
+        }
+
+        public Client UpdatePhoneNumber(string phoneNumber)
+        {
+            this.PhoneNumber = phoneNumber;
+            return this;
+        }
+
+        public void AddMassageAppointment(MassageAppointment massageAppointment)
+        {
+            this.massageAppointments.Add(massageAppointment);
+        }
+
+        public void AddTrainingAppointment(TrainingAppointment trainingAppointment)
+        {
+            this.trainingAppointments.Add(trainingAppointment);
+        }
 
         private void Validate(string firstName, string lastName)
         {
