@@ -8,10 +8,16 @@
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder
-                .HasOne(u => u.Client)
-                .WithOne()
-                .HasForeignKey<User>("ClientId")
-                .OnDelete(DeleteBehavior.Restrict);
+                .Property(u => u.Email)
+                .IsRequired();
+
+            builder
+                .Property(u => u.FirstName)
+                .IsRequired();
+
+            builder
+                .Property(u => u.LastName)
+                .IsRequired();
         }
     }
 }

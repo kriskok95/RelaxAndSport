@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelaxAndSport.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelaxAndSport.Infrastructure", "RelaxAndSport.Infrastructure\RelaxAndSport.Infrastructure.csproj", "{9A6BFC8F-BC73-42A5-A422-97FC560187F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelaxAndSport.Startup", "RelaxAndSport.Startup\RelaxAndSport.Startup.csproj", "{4C80BF99-CA3E-4526-8B9D-97922DE034B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelaxAndSport.Startup", "RelaxAndSport.Startup\RelaxAndSport.Startup.csproj", "{4C80BF99-CA3E-4526-8B9D-97922DE034B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelaxAndSport.Web", "RelaxAndSport.Web\RelaxAndSport.Web.csproj", "{D5308CBE-9D69-4FB4-AE2B-2FFF10AAC8A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4C80BF99-CA3E-4526-8B9D-97922DE034B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C80BF99-CA3E-4526-8B9D-97922DE034B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C80BF99-CA3E-4526-8B9D-97922DE034B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5308CBE-9D69-4FB4-AE2B-2FFF10AAC8A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5308CBE-9D69-4FB4-AE2B-2FFF10AAC8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5308CBE-9D69-4FB4-AE2B-2FFF10AAC8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5308CBE-9D69-4FB4-AE2B-2FFF10AAC8A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

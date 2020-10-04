@@ -1,10 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.TrainingsSchedule
 {
-    using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
-    using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Models;
-    using System;
 
     public class TrainingAppointment : Entity<int>
     {

@@ -10,7 +10,7 @@ using RelaxAndSport.Infrastructure.Common.Persistence;
 namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 {
     [DbContext(typeof(RelaxAndSportDbContext))]
-    [Migration("20201004144449_InitialCreate")]
+    [Migration("20201004180514_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -343,19 +343,25 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -391,10 +397,6 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId")
-                        .IsUnique()
-                        .HasFilter("[ClientId] IS NOT NULL");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -565,14 +567,6 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("TrainingAppointmentId");
                         });
-                });
-
-            modelBuilder.Entity("RelaxAndSport.Infrastructure.Identity.User", b =>
-                {
-                    b.HasOne("RelaxAndSport.Domain.Booking.Models.Client.Client", "Client")
-                        .WithOne()
-                        .HasForeignKey("RelaxAndSport.Infrastructure.Identity.User", "ClientId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

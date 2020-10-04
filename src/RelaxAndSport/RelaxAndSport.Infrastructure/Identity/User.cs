@@ -2,27 +2,20 @@
 {
     using Microsoft.AspNetCore.Identity;
     using RelaxAndSport.Application.Identity;
-    using RelaxAndSport.Domain.Booking.Models.Client;
-    using RelaxAndSport.Domain.Common.Exceptions;
 
     public class User : IdentityUser, IUser
     {
-        internal User(string email)
-            : base(email)
+        internal User(string firstName, string lastName, string email)
+            :base(email)
+
         {
             this.Email = email;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
 
-        public Client? Client { get; private set; }
+        public string FirstName { get; set; }
 
-        public void BecomeClient(Client client)
-        {
-            if(this.Client != null)
-            {
-                throw new InvalidClientException($"User '{this.UserName}' is already a client");
-            }
-
-            this.Client = client;
-        }
+        public string LastName { get; set; }
     }
 }

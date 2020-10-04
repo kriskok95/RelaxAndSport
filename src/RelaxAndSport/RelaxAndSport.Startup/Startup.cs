@@ -40,6 +40,8 @@ namespace RelaxAndSport.Startup
             {
                 endpoints.MapControllers();
             });
+
+            app.Initialize();
         }
     }
 }
