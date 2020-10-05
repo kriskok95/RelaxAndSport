@@ -8,6 +8,7 @@ namespace RelaxAndSport.Startup
     using RelaxAndSport.Application;
     using RelaxAndSport.Domain;
     using RelaxAndSport.Infrastructure;
+    using RelaxAndSport.Web;
 
     public class Startup
     {
@@ -24,7 +25,7 @@ namespace RelaxAndSport.Startup
                 .AddDomain()
                 .AddApplication(this.Configuration)
                 .AddInfrastructure(this.Configuration)
-                .AddControllers();
+                .AddWebComponents();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
