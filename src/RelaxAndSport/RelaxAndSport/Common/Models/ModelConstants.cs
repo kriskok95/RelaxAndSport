@@ -9,6 +9,7 @@
             public const int MinEmailLength = 3;
             public const int MaxEmailLength = 50;
             public const int MaxUrlLength = 2048;
+            public const int MinPasswordLength = 6;
             public const int Zero = 0;
         }
 
