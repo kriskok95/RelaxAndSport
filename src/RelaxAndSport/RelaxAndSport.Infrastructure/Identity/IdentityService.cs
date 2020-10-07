@@ -4,6 +4,7 @@
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Identity;
     using RelaxAndSport.Application.Identity.Commands.CreateUser;
+    using RelaxAndSport.Application.Identity.Commands.LoginUser;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -34,6 +35,25 @@
             return identityResult.Succeeded ?
                 Result<IUser>.SuccessWith(user) :
                 Result<IUser>.Failure(errors);
+        }
+
+        public async Task<Result<LoginSuccessModel>> Login(LoginInputModel userInput)
+        {
+            var user = await this.userManager.FindByEmailAsync(userInput.Email);
+            if (user == null)
+            {
+                return InvalidErrorMessage;
+            }
+
+            var passwordValid = await this.userManager.CheckPasswordAsync(user, userInput.Password);
+            if (!passwordValid)
+            {
+                return InvalidErrorMessage;
+            }
+
+            var token = this.jwtTokenGenerator.GenerateToken(user);
+
+            return new LoginSuccessModel(user.Id, token);
         }
     }
 }

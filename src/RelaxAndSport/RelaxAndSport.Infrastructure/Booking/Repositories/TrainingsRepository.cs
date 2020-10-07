@@ -36,7 +36,6 @@ namespace RelaxAndSport.Infrastructure.Booking.Repositories
             return true;
         }
 
-
         public async Task<Trainer> GetTrainer(int id, CancellationToken cancellationToken = default)
             => await this.Data
             .Trainers
