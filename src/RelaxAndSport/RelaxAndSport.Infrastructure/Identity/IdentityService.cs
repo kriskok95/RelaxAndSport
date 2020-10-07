@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Identity;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Identity;
+    using RelaxAndSport.Application.Identity.Commands.ChangePassword;
     using RelaxAndSport.Application.Identity.Commands.CreateUser;
     using RelaxAndSport.Application.Identity.Commands.LoginUser;
     using System.Linq;
@@ -54,6 +55,27 @@
             var token = this.jwtTokenGenerator.GenerateToken(user);
 
             return new LoginSuccessModel(user.Id, token);
+        }
+
+        public async Task<Result> ChangePassword(ChangePasswordInputModel changePasswordInput)
+        {
+            var user = await this.userManager.FindByIdAsync(changePasswordInput.UserId);
+
+            if (user == null)
+            {
+                return InvalidErrorMessage;
+            }
+
+            var identityResult = await this.userManager.ChangePasswordAsync(
+                user,
+                changePasswordInput.CurrentPassword,
+                changePasswordInput.NewPassword);
+
+            var errors = identityResult.Errors.Select(e => e.Description);
+
+            return identityResult.Succeeded
+                ? Result.Success
+                : Result.Failure(errors);
         }
     }
 }

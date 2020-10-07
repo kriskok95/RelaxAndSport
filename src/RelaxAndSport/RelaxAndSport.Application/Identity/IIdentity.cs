@@ -1,6 +1,7 @@
 ﻿namespace RelaxAndSport.Application.Identity
 {
     using RelaxAndSport.Application.Common;
+    using RelaxAndSport.Application.Identity.Commands.ChangePassword;
     using RelaxAndSport.Application.Identity.Commands.CreateUser;
     using RelaxAndSport.Application.Identity.Commands.LoginUser;
     using System.Threading.Tasks;
@@ -11,6 +12,6 @@
 
         Task<Result<LoginSuccessModel>> Login(LoginInputModel userInput);
 
-        //Task<Result> ChangePassword(ChangePasswordInputModel changePasswordInput);
+        Task<Result> ChangePassword(ChangePasswordInputModel changePasswordInput);
     }
 }
