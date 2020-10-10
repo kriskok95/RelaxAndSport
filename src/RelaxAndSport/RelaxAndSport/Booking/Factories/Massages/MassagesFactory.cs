@@ -12,7 +12,6 @@
 
         private bool categorySet = false;
         private bool descriptionSet = false;
-        private bool typeSet = false;
         private bool durationSet = false;
         private bool priceSet = false;
 
@@ -49,7 +48,6 @@
             if (
                 !this.categorySet ||
                 !this.descriptionSet ||
-                !this.typeSet || 
                 !this.durationSet || 
                 ! this.priceSet)
             {
