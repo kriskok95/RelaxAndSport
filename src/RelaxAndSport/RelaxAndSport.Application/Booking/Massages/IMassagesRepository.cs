@@ -1,5 +1,6 @@
 ﻿namespace RelaxAndSport.Application.Booking.Massages
 {
+    using RelaxAndSport.Application.Booking.Massages.Queries.Common;
     using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using System.Threading;
@@ -10,5 +11,7 @@
         Task<Massage> Find(int id, CancellationToken cancellationToken = default);
 
         Task<bool> Delete(int id, CancellationToken cancellationToken = default);
+
+        Task<MassageOutputModel> GetDetails(int id, CancellationToken cancellationToken);
     }
 }

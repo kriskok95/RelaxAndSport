@@ -1,7 +1,9 @@
 ﻿namespace RelaxAndSport.Infrastructure.Booking.Repositories
 {
+    using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.Massages;
+    using RelaxAndSport.Application.Booking.Massages.Queries.Common;
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using System.Threading;
@@ -9,11 +11,13 @@
 
     internal class MassagesRepository : DataRepository<IBookingDbContext, Massage>, IMassagesRepository
     {
-        public MassagesRepository(IBookingDbContext db)
-            : base(db)
-        {
+        private readonly IMapper mapper;
 
-        }
+        public MassagesRepository(
+            IBookingDbContext db,
+            IMapper mapper)
+            : base(db)
+            => this.mapper = mapper;
 
         public async Task<Massage> Find(int id, CancellationToken cancellationToken = default)
             => await this
@@ -40,6 +44,13 @@
                 .SaveChangesAsync(cancellationToken);
 
             return true;
+        }
+
+        public async Task<MassageOutputModel> GetDetails(int id, CancellationToken cancellationToken)
+        {
+            var massage = await this.Data.Massages.FirstOrDefaultAsync(m => m.Id == id, cancellationToken);
+
+            return this.mapper.Map<MassageOutputModel>(massage);
         }
     }
 }
