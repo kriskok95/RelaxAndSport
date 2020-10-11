@@ -26,6 +26,13 @@
             .All()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
+        public async Task<bool> HasMassage(int id, CancellationToken cancellationToken)
+            => await this
+            .Data
+            .Massages
+            .AnyAsync(m => m.Id == id);
+            
+
 
         public async Task<bool> Delete(int id, CancellationToken cancellationToken = default)
         {

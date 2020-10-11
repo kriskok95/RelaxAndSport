@@ -16,10 +16,10 @@
 
             public async Task<Result> Handle(DeleteMassageCommand request, CancellationToken cancellationToken)
             {
-                var massage = await this.massagesRepository
-                    .Find(request.Id, cancellationToken);
+                var contatinsMassage = await this.massagesRepository
+                    .HasMassage(request.Id, cancellationToken);
 
-                if(massage == null)
+                if(!contatinsMassage)
                 {
                     return $"Massage with Id: {request.Id} doesn't exists.";
                 }

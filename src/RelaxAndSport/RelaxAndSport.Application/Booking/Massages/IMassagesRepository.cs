@@ -11,6 +11,8 @@
     {
         Task<Massage> Find(int id, CancellationToken cancellationToken = default);
 
+        Task<bool> HasMassage(int id, CancellationToken cancellationToken);
+
         Task<bool> Delete(int id, CancellationToken cancellationToken = default);
 
         Task<MassageOutputModel> GetDetails(int id, CancellationToken cancellationToken);
