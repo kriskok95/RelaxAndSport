@@ -3,6 +3,7 @@
     using RelaxAndSport.Application.Booking.Massages.Queries.Common;
     using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Domain.Booking.Models.Massages;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -13,5 +14,7 @@
         Task<bool> Delete(int id, CancellationToken cancellationToken = default);
 
         Task<MassageOutputModel> GetDetails(int id, CancellationToken cancellationToken);
+
+        Task<IEnumerable<MassageOutputModel>> GetAllMassagesDetails(CancellationToken cancellationToken);
     }
 }

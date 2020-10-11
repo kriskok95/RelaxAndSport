@@ -3,13 +3,20 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using RelaxAndSport.Application.Booking.Massages.Commands.Create;
+    using RelaxAndSport.Application.Booking.Massages.Queries.All;
     using RelaxAndSport.Application.Booking.Massages.Queries.Common;
     using RelaxAndSport.Application.Booking.Massages.Queries.Details;
     using RelaxAndSport.Web.Common;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class MassagesController : ApiController
     {
+        [HttpGet]
+        [Route(nameof(All))]
+        public async Task<ActionResult<IEnumerable<MassageOutputModel>>> All([FromQuery] AllMassagesDetailsQuery query)
+            => await this.Send(query);
+
         [HttpGet]
         [Route(Id)]
         public async Task<ActionResult<MassageOutputModel>> Details(

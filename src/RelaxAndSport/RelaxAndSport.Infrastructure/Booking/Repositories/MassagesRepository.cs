@@ -6,6 +6,8 @@
     using RelaxAndSport.Application.Booking.Massages.Queries.Common;
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Infrastructure.Common.Persistence;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -50,7 +52,18 @@
         {
             var massage = await this.Data.Massages.FirstOrDefaultAsync(m => m.Id == id, cancellationToken);
 
-            return this.mapper.Map<MassageOutputModel>(massage);
+            return this.mapper
+                .Map<MassageOutputModel>(massage);
+        }
+
+        public async Task<IEnumerable<MassageOutputModel>> GetAllMassagesDetails(CancellationToken cancellationToken)
+        {
+            var allMassages = await this.Data
+                .Massages
+                .ToListAsync();
+
+            return this.mapper
+                .Map<IEnumerable<MassageOutputModel>>(allMassages);
         }
     }
 }
