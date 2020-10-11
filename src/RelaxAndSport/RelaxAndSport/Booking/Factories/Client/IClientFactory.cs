@@ -5,6 +5,8 @@
 
     public interface IClientFactory : IFactory<Client>
     {
+        IClientFactory WithUserId(string userId);
+
         IClientFactory WithFirstName(string firstName);
 
         IClientFactory WithLastName(string lastName);

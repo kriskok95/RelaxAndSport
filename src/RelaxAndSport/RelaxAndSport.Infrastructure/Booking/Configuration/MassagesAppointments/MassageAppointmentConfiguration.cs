@@ -1,8 +1,8 @@
-﻿namespace RelaxAndSport.Infrastructure.Booking.Configuration.MassagesSchedule
+﻿namespace RelaxAndSport.Infrastructure.Booking.Configuration.MassagesAppointments
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using RelaxAndSport.Domain.Booking.Models.MassagesSchedule;
+    using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
 
     public class MassageAppointmentConfiguration : IEntityTypeConfiguration<MassageAppointment>
     {

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RelaxAndSport.Infrastructure.Common.Persistence;
 
 namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 {
     [DbContext(typeof(RelaxAndSportDbContext))]
-    partial class RelaxAndSportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201011190020_AddUserIdToClient")]
+    partial class AddUserIdToClient
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -214,19 +216,19 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.Property<int?>("ClientId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MassageId")
+                    b.Property<int?>("MassageAppointmentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MassagesScheduleId")
+                    b.Property<int>("MassageId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
 
-                    b.HasIndex("MassageId");
+                    b.HasIndex("MassageAppointmentId");
 
-                    b.HasIndex("MassagesScheduleId");
+                    b.HasIndex("MassageId");
 
                     b.ToTable("MassageAppointments");
                 });
@@ -490,16 +492,16 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .WithMany("MassageAppointments")
                         .HasForeignKey("ClientId");
 
+                    b.HasOne("RelaxAndSport.Domain.Booking.Models.MassagesSchedule.MassagesSchedule", null)
+                        .WithMany("MassageAppointments")
+                        .HasForeignKey("MassageAppointmentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("RelaxAndSport.Domain.Booking.Models.Massages.Massage", "Massage")
                         .WithMany()
                         .HasForeignKey("MassageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("RelaxAndSport.Domain.Booking.Models.MassagesSchedule.MassagesSchedule", null)
-                        .WithMany("MassageAppointments")
-                        .HasForeignKey("MassagesScheduleId")
-                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.OwnsOne("RelaxAndSport.Domain.Common.Models.DateTimeRange", "TimeRange", b1 =>
                         {

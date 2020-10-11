@@ -6,5 +6,7 @@
     {
         public MassagesSchedule Build()
             => new MassagesSchedule();
+
+
     }
 }

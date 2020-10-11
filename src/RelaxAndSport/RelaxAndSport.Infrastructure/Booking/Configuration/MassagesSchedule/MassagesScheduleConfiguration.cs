@@ -14,7 +14,7 @@
             builder
                 .HasMany(mc => mc.MassageAppointments)
                 .WithOne()
-                .HasForeignKey("MassageAppointmentId")
+                .HasForeignKey("MassagesScheduleId")
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

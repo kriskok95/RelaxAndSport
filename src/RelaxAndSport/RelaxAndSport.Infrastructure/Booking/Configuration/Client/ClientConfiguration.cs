@@ -14,6 +14,10 @@
                 .HasKey(c => c.Id);
 
             builder
+                .Property(c => c.UserId)
+                .IsRequired();
+
+            builder
                 .Property(c => c.FirstName)
                 .IsRequired()
                 .HasMaxLength(MaxNameLength);

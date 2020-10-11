@@ -14,10 +14,7 @@
         [Route(nameof(Register))]
         public async Task<ActionResult> Register(
             CreateUserCommand command)
-        {
-            ;
-            return await this.Send(command);
-        }
+            => await this.Send(command);
 
         [HttpPost]
         [Route(nameof(Login))]

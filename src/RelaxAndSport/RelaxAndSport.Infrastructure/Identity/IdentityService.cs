@@ -31,6 +31,12 @@
 
             var identityResult = await this.userManager.CreateAsync(user, userInput.Password);
 
+            if (identityResult.Succeeded)
+            {
+                var userData = await this.userManager.FindByEmailAsync(userInput.Email);
+                user.Id = userData.Id;
+            }
+
             var errors = identityResult.Errors.Select(e => e.Description);
 
             return identityResult.Succeeded ?

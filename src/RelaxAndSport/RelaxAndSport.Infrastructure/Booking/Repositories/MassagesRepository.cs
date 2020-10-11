@@ -7,7 +7,6 @@
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 

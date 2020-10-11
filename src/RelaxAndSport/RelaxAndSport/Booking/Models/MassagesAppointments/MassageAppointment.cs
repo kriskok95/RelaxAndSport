@@ -1,22 +1,23 @@
-﻿namespace RelaxAndSport.Domain.Booking.Models.MassagesSchedule
+﻿namespace RelaxAndSport.Domain.Booking.Models.MassagesAppointments
 {
     using RelaxAndSport.Domain.Booking.Models.Massages;
+    using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Models;
 
-    public class MassageAppointment : Entity<int>
+    public class MassageAppointment : Entity<int>, IAggregateRoot
     {
         internal MassageAppointment(
             Massage massage,
             DateTimeRange timeRange)
         {
-            this.Massage = massage;
-            this.TimeRange = timeRange;
+            Massage = massage;
+            TimeRange = timeRange;
         }
 
         private MassageAppointment()
         {
-            this.Massage = default!;
-            this.TimeRange = default!;
+            Massage = default!;
+            TimeRange = default!;
         }
 
         public Massage Massage { get; private set; }

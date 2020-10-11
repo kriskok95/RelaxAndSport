@@ -19,4 +19,8 @@
     <ProjectReference Include="..\RelaxAndSport\RelaxAndSport.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Booking\MassagesSchedule\Commands\" />
+  </ItemGroup>
+
 </Project>

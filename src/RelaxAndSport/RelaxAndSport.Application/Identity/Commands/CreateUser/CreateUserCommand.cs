@@ -37,6 +37,7 @@
                 }
 
                 var client = this.clientFactory
+                    .WithUserId(result.Data.Id)
                     .WithFirstName(request.FirstName)
                     .WithLastName(request.LastName)
                     .WithPhoneNumber(request.PhoneNumber)

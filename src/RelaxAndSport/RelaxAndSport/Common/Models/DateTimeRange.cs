@@ -1,7 +1,6 @@
 ﻿namespace RelaxAndSport.Domain.Common.Models
 {
     using RelaxAndSport.Domain.Booking.Exceptions;
-    using RelaxAndSport.Domain.Common;
     using System;
 
     public class DateTimeRange : ValueObject

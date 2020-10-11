@@ -1,7 +1,7 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Client
 {
     using RelaxAndSport.Domain.Booking.Events;
-    using RelaxAndSport.Domain.Booking.Models.MassagesSchedule;
+    using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
     using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Exceptions;
@@ -17,32 +17,37 @@
         private readonly HashSet<TrainingAppointment> trainingAppointments;
 
         internal Client(
+            string userId,
             string firstName,
             string lastName,
             PhoneNumber phoneNumber)
         {
-            Validate(firstName, lastName);
+            this.Validate(firstName, lastName);
 
-            FirstName = firstName;
-            LastName = lastName;
-            PhoneNumber = phoneNumber;
+            this.UserId = userId;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = phoneNumber;
 
-            massageAppointments = new HashSet<MassageAppointment>();
-            trainingAppointments = new HashSet<TrainingAppointment>();
+            this.massageAppointments = new HashSet<MassageAppointment>();
+            this.trainingAppointments = new HashSet<TrainingAppointment>();
         }
 
         private Client(
             string firstName,
-            string lastName)
+            string lastName,
+            string userId)
         {
+            this.UserId = userId;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = default!;
 
-            FirstName = firstName;
-            LastName = lastName;
-            PhoneNumber = default!;
-
-            massageAppointments = new HashSet<MassageAppointment>();
-            trainingAppointments = new HashSet<TrainingAppointment>();
+            this.massageAppointments = new HashSet<MassageAppointment>();
+            this.trainingAppointments = new HashSet<TrainingAppointment>();
         }
+
+        public string UserId { get; private set; }
 
         public string FirstName { get; private set; }
 

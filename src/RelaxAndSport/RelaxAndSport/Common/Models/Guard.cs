@@ -55,7 +55,7 @@
         public static void AgainstDateRange<TException>(DateTime date, DateTime dateToCompare, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if(date > dateToCompare)
+            if(date < dateToCompare)
             {
                 return; 
             }
