@@ -30,6 +30,7 @@
         public async Task<MassagesSchedule> GetMassagesSchedule()
             => await this.Data
             .MassagesSchedules
+            .Include(ms => ms.MassageAppointments)
             .FirstOrDefaultAsync();
     }
 }
