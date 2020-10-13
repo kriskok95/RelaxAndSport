@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace RelaxAndSport.Domain.Common.Models
 {
-    public abstract class Entity<TId>
+    public abstract class Entity<TId> : IEntity
         where TId : struct
     {
         private readonly ICollection<IDomainEvent> events;

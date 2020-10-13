@@ -11,8 +11,10 @@
     using RelaxAndSport.Application.Identity;
     using RelaxAndSport.Infrastructure.Booking;
     using RelaxAndSport.Infrastructure.Common;
+    using RelaxAndSport.Infrastructure.Common.Events;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using RelaxAndSport.Infrastructure.Identity;
+    using RelaxAndSport.Infrastructure.Statistics;
     using System.Text;
 
     public static class InfrastructureConfiguration
@@ -23,7 +25,8 @@
            => services
                .AddDatabase(configuration)
                .AddRepositories()
-               .AddIdentity(configuration);
+               .AddIdentity(configuration)
+               .AddTransient<IEventDispatcher, EventDispatcher>();
 
         private static IServiceCollection AddDatabase(
             this IServiceCollection services,
@@ -35,6 +38,7 @@
                         sqlServer => sqlServer
                             .MigrationsAssembly(typeof(RelaxAndSportDbContext).Assembly.FullName)))
                 .AddScoped<IBookingDbContext>(provider => provider.GetService<RelaxAndSportDbContext>())
+                .AddScoped<IStatisticsDbContext>(provider => provider.GetService<RelaxAndSportDbContext>())
                 .AddTransient<IInitializer, DatabaseInitializer>();
 
         internal static IServiceCollection AddRepositories(this IServiceCollection services)

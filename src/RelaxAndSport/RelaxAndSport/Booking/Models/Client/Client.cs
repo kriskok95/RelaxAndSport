@@ -91,7 +91,6 @@
         public MassageAppointment AddMassageAppointment(MassageAppointment massageAppointment)
         {
             this.massageAppointments.Add(massageAppointment);
-            this.RaiseEvent(new MassageAppointmentAddedEvent());
 
             return massageAppointment;
         }

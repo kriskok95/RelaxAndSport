@@ -2,7 +2,6 @@
 {
     using MediatR;
     using RelaxAndSport.Application.Booking.Client;
-    using RelaxAndSport.Application.Booking.Massages.Commands.Delete;
     using RelaxAndSport.Application.Booking.MassagesSchedule;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Common.Contracts;

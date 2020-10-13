@@ -4,10 +4,8 @@
     using MediatR;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using RelaxAndSport.Application.Booking.Client;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Common.Behaviours;
-    using RelaxAndSport.Application.Common.Contracts;
     using System.Reflection;
 
     public static class ApplicationConfiguration
