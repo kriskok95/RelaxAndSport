@@ -6,13 +6,19 @@
     using System.Threading.Tasks;
     using System.Threading;
     using System.Linq;
+    using RelaxAndSport.Application.Statistics.Commands.Get;
+    using Microsoft.EntityFrameworkCore;
+    using AutoMapper;
 
     internal class StatisticsRepository : DataRepository<IStatisticsDbContext, Statistics>, IStatisticsRepository
     {
-        public StatisticsRepository(IStatisticsDbContext db) 
+        private readonly IMapper mapper;
+
+        public StatisticsRepository(
+            IStatisticsDbContext db,
+            IMapper mapper) 
             : base(db)
-        {
-        }
+            => this.mapper = mapper;
 
         public async Task IncrementMassagesAppointments(CancellationToken cancellationToken)
         {
@@ -29,6 +35,14 @@
         public Task IncrementTrainingsAppointments(CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
+        }
+
+        public async Task<GetStatisticsOutputModel> GetStatistics(CancellationToken cancellationToken = default)
+        {
+            var statistics = await this.Data.Statistics.SingleOrDefaultAsync();
+
+            return this.mapper
+                .Map<GetStatisticsOutputModel>(statistics);
         }
     }
 }

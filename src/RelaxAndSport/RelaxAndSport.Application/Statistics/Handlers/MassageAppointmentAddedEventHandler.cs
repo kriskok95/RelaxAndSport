@@ -10,7 +10,6 @@
 
         public MassageAppointmentAddedEventHandler(IStatisticsRepository statisticsRepository)
             => this.statisticsRepository = statisticsRepository;
-        
 
         public Task Handle(MassageAppointmentAddedEvent domainEvent)
             => this.statisticsRepository.IncrementMassagesAppointments();
