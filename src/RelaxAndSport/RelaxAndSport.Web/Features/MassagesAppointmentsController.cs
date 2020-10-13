@@ -4,6 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.CreateMassageAppointment;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.DeleteMassageAppointment;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Edit;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Web.Common;
     using System.Threading.Tasks;
@@ -20,5 +21,11 @@
         [Route(Id)]
         public async Task<ActionResult<Result>> Delete([FromRoute] DeleteMassageAppointmentComand command)
             => await this.Send(command);
+
+        [HttpPut]
+        [Authorize]
+        [Route(Id)]
+        public async Task<ActionResult<Result>> Edit(int id, EditMassageAppointmentCommand command)
+            => await this.Send(command.SetId(id));
     }
 }
