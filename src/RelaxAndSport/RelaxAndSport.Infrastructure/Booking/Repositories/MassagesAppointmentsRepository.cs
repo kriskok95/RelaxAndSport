@@ -1,18 +1,28 @@
 ﻿namespace RelaxAndSport.Infrastructure.Booking.Repositories
 {
+    using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.MassagesAppointments;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Queries.Common;
     using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
     using RelaxAndSport.Infrastructure.Common.Persistence;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
     internal class MassagesAppointmentsRepository : DataRepository<IBookingDbContext, MassageAppointment>, IMassagesAppointmentsRepository
     {
-        public MassagesAppointmentsRepository(IBookingDbContext db)
+        private readonly IMapper mapper;
+
+        public MassagesAppointmentsRepository(
+            IBookingDbContext db, 
+            IMapper mapper)
             : base(db)
         {
+            this.mapper = mapper;
         }
 
         public async Task<MassageAppointment> GetMassageAppointment(int id)
@@ -44,6 +54,18 @@
                 .SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<IEnumerable<MassageAppointmentOutputModel>> GetByDate(DateTime date)
+        {
+            var massageAppointments = await this.Data
+                .MassageAppointments
+                .Include(ma => ma.Massage)
+                .Where(ma => ma.TimeRange.End.Date == date)
+                .ToListAsync();
+
+            return this.mapper
+                .Map<IEnumerable<MassageAppointmentOutputModel>>(massageAppointments);
         }
     }
 }

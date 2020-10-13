@@ -5,12 +5,24 @@
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.CreateMassageAppointment;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.DeleteMassageAppointment;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Edit;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Queries.Common;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Queries.GetByDate;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Web.Common;
+    using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class MassagesAppointmentsController : ApiController
     {
+        [HttpGet]
+        [Authorize]
+        [Route("{Date}")]
+        public async Task<ActionResult<IEnumerable<MassageAppointmentOutputModel>>> GetMassagesAppointmentsByDate(
+            DateTime date,
+            [FromRoute] GetMassagesAppointmentsByDateQuery command)
+            => await this.Send(command);
+
         [HttpPost]
         [Authorize]
         public async Task<ActionResult<CreateMassageAppointmentOutputModel>> Create(CreateMassageAppointmentCommand command)
