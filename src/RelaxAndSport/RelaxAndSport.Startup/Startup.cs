@@ -9,6 +9,7 @@ namespace RelaxAndSport.Startup
     using RelaxAndSport.Domain;
     using RelaxAndSport.Infrastructure;
     using RelaxAndSport.Web;
+    using RelaxAndSport.Web.Middleware;
 
     public class Startup
     {
@@ -36,6 +37,7 @@ namespace RelaxAndSport.Startup
             }
 
             app
+                .UseValidationExceptionHandler()
                 .UseHttpsRedirection()
                 .UseRouting()
                 .UseCors(options => options
