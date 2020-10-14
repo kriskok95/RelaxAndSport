@@ -25,6 +25,8 @@
 
         public class Training
         {
+            public const int MinDuration = 5;
+            public const int MaxDuration = 240;
             public const int MinNumberOfSlots = 1;
             public const int MaxNumberOfSlots = 30;
             public const decimal MinPrice = 0;

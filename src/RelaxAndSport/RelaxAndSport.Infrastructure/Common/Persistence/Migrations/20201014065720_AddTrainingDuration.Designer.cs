@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RelaxAndSport.Infrastructure.Common.Persistence;
 
 namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 {
     [DbContext(typeof(RelaxAndSportDbContext))]
-    partial class RelaxAndSportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201014065720_AddTrainingDuration")]
+    partial class AddTrainingDuration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

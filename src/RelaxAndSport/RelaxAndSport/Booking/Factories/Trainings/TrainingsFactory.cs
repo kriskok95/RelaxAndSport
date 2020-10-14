@@ -6,9 +6,10 @@
 
     internal class TrainingsFactory : ITrainingsFactory
     {
-        private string type = default!;
+        private string category = default!;
         private Trainer trainer = default!;
         private DateTime date = default;
+        private int duration = default;
         private int slots = default;
         private decimal price = default;
         private bool isRepeated = default;
@@ -16,12 +17,13 @@
         private bool typeSet = false;
         private bool trainerSet = false;
         private bool dateSet = false;
+        private bool durationSet = false;
         private bool slotsSet = false;
         private bool priceSet = false;
 
-        public ITrainingsFactory WithType(string type)
+        public ITrainingsFactory WithType(string category)
         {
-            this.type = type;
+            this.category = category;
             this.typeSet = true;
             return this;
         }
@@ -33,6 +35,7 @@
         {
             this.trainer = trainer;
             trainerSet = true;
+
             return this;
         }
 
@@ -43,10 +46,19 @@
             return this;
         }
 
+        public ITrainingsFactory WithDuration(int duration)
+        {
+            this.duration = duration;
+            this.durationSet = true;
+
+            return this;
+        }
+
         public ITrainingsFactory WithSlots(int slots)
         {
             this.slots = slots;
             this.slotsSet = true;
+
             return this;
         }
 
@@ -54,12 +66,14 @@
         {
             this.price = price;
             this.priceSet = true;
+
             return this;
         }
 
         public ITrainingsFactory WithIsRepeated(bool isRepeated)
         {
             this.isRepeated = isRepeated;
+
             return this;
         }
 
@@ -69,16 +83,18 @@
                 !typeSet || 
                 !trainerSet ||
                 !dateSet ||
+                !durationSet ||
                 !slotsSet ||
                 !priceSet)
             {
-                throw new InvalidTrainingException("Training type, trainer, date, slots and price must have a value.");
+                throw new InvalidTrainingException("Training type, trainer, date, duration, slots and price must have a value.");
             }
 
             return new Training(
-                this.type,
+                this.category,
                 this.trainer,
                 this.date,
+                this.duration,
                 this.slots,
                 this.price,
                 this.isRepeated);

@@ -16,6 +16,10 @@
                 .IsRequired();
 
             builder
+                .Property(t => t.Duration)
+                .IsRequired();
+
+            builder
                 .Property(t => t.Price)
                 .IsRequired()
                 .HasColumnType("decimal(18,4)");

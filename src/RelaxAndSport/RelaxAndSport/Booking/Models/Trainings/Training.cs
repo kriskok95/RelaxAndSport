@@ -4,7 +4,6 @@
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Models;
     using System;
-
     using static RelaxAndSport.Domain.Common.Models.ModelConstants.Training;
 
     public class Training : Entity<int>, IAggregateRoot
@@ -13,15 +12,17 @@
             string category,
             Trainer trainer,
             DateTime date,
+            int duration,
             int slots,
             decimal price,
             bool isRepeated)
         {
-            Validate(category, date, slots, price);
+            Validate(category, date, duration, slots, price);
 
             this.Category = category;
             this.Trainer = trainer;
             this.Date = date;
+            this.Duration = duration;
             this.Slots = slots;
             this.Price = price;
             this.IsRepeated = isRepeated;
@@ -30,12 +31,14 @@
         private Training(
             string category,
             int slots,
+            int duration,
             decimal price,
             bool isRepeated)
         {
             this.Category = category;
             this.Trainer = default!;
             this.Date = default;
+            this.Duration = duration;
             this.Slots = slots;
             this.Price = price;
             this.IsRepeated = isRepeated;
@@ -46,6 +49,8 @@
         public Trainer Trainer { get; private set; }
 
         public DateTime Date { get; private set; }
+
+        public int Duration { get; private set; }
 
         public int Slots { get; private set; }
 
@@ -102,11 +107,13 @@
         private void Validate(
             string category,
             DateTime date,
+            int duration,
             int slots,
             decimal price)
         {
             ValidateCategory(category);
             ValidateDate(date);
+            ValidateDuration(duration);
             ValidateSlots(slots);
             ValidatePrice(price);
         }
@@ -117,10 +124,16 @@
                 nameof(category));
 
         private void ValidateDate(DateTime date)
-            => Guard.AgainstDateRange<InvalidTrainingException>(
+            => Guard.ForValidDate<InvalidTrainingException>(
                 date,
-                DateTime.UtcNow,
                 nameof(date));
+
+        private void ValidateDuration(int duration)
+            => Guard.AgainstOutOfRange<InvalidTrainingException>(
+                duration,
+                MinDuration,
+                MaxDuration,
+                nameof(duration));
 
         private void ValidateSlots(int slots)
             => Guard.AgainstOutOfRange<InvalidTrainingException>(

@@ -52,15 +52,15 @@
             ThrowException<TException>($"{name} must be between {min} and {max}.");
         }
 
-        public static void AgainstDateRange<TException>(DateTime date, DateTime dateToCompare, string name = "Value")
+        public static void AgainstDateRange<TException>(DateTime startDate, DateTime endDate, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if(date < dateToCompare)
+            if(startDate < endDate)
             {
                 return; 
             }
 
-            ThrowException<TException>($"{name} with date {date} must be after {dateToCompare}.");
+            ThrowException<TException>($"{name} with date {endDate} must be after {endDate}.");
         }
 
         public static void ForValidUrl<TException>(string url, string name = "Value")

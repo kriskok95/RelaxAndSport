@@ -6,13 +6,15 @@
 
     public interface ITrainingsFactory : IFactory<Training>
     {
-        ITrainingsFactory WithType(string type);
+        ITrainingsFactory WithType(string category);
 
         ITrainingsFactory WithTrainer(string firstName, string lastName);
 
         ITrainingsFactory WithTrainer(Trainer trainer);
 
         ITrainingsFactory WithDate(DateTime date);
+
+        ITrainingsFactory WithDuration(int duration);
 
         ITrainingsFactory WithSlots(int slots);
 
