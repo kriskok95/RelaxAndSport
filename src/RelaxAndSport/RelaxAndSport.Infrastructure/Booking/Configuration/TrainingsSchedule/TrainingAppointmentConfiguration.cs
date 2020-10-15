@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
+    using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
 
     public class TrainingAppointmentConfiguration : IEntityTypeConfiguration<TrainingAppointment>
     {

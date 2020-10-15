@@ -2,6 +2,7 @@
 {
     using RelaxAndSport.Domain.Booking.Events;
     using RelaxAndSport.Domain.Booking.Exceptions;
+    using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Models;
     using System.Collections.Generic;

@@ -2,7 +2,7 @@
 {
     using RelaxAndSport.Domain.Booking.Events;
     using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
-    using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
+    using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Exceptions;
     using RelaxAndSport.Domain.Common.Models;

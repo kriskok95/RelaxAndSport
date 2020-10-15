@@ -6,6 +6,7 @@
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
     using RelaxAndSport.Domain.Booking.Models.MassagesSchedule;
+    using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
     using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
     using RelaxAndSport.Domain.Common.Models;

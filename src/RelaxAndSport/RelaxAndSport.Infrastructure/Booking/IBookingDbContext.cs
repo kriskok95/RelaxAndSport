@@ -6,6 +6,7 @@ namespace RelaxAndSport.Infrastructure.Booking
     using RelaxAndSport.Domain.Booking.Models.Client;
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
+    using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
     using RelaxAndSport.Domain.Booking.Models.TrainingsSchedule;
     using RelaxAndSport.Infrastructure.Common.Persistence;

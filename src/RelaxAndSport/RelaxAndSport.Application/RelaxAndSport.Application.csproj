@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Booking\MassagesSchedule\Commands\" />
+    <Folder Include="Booking\TrainingsAppointments\Queries\" />
   </ItemGroup>
 
 </Project>
