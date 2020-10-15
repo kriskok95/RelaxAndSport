@@ -81,6 +81,14 @@
             return this;
         }
 
+        public Training UpdateDuration(int duration)
+        {
+            this.ValidateDuration(duration);
+            this.Duration = duration;
+
+            return this;
+        }
+
         public Training UpdateSlots(int slots)
         {
             this.ValidateSlots(slots);

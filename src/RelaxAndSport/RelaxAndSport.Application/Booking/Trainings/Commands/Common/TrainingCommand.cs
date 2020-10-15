@@ -6,7 +6,7 @@
     public class TrainingCommand<TCommand> : EntityCommand<int>
         where TCommand : EntityCommand<int>
     {
-        public string Type { get; set; } = default!;
+        public string Category { get; set; } = default!;
 
         public string TrainerFirstName { get; set; } = default!;
 

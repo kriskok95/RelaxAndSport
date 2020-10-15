@@ -20,7 +20,7 @@
 
             public async Task<TrainingOutputModel> Handle(TrainingDetailsQuery request, CancellationToken cancellationToken)
                => await this.trainingsRepository
-                    .GetById(request.Id);
+                    .GetTrainingOutputModelById(request.Id, cancellationToken);
         }
     }
 }

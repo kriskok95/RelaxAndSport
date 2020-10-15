@@ -21,7 +21,7 @@
         private bool slotsSet = false;
         private bool priceSet = false;
 
-        public ITrainingsFactory WithType(string category)
+        public ITrainingsFactory WithCategory(string category)
         {
             this.category = category;
             this.typeSet = true;
@@ -98,6 +98,18 @@
                 this.slots,
                 this.price,
                 this.isRepeated);
+        }
+
+        public Trainer BuildTrainer()
+        {
+            if (!trainerSet)
+            {
+                throw new InvalidTrainingException("Trainer must have first and last name.");
+            }
+
+            return new Trainer(
+                this.trainer.FirstName, 
+                this.trainer.LastName);
         }
     }
 }

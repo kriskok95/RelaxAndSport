@@ -4,6 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Create;
+    using RelaxAndSport.Application.Booking.Trainings.Commands.Edit;
     using RelaxAndSport.Application.Booking.Trainings.Queries.All;
     using RelaxAndSport.Application.Booking.Trainings.Queries.Details;
     using RelaxAndSport.Application.Common;
@@ -27,5 +28,10 @@
         public async Task<ActionResult<CreateTrainingOutputModel>> Create(CreateTrainingCommand command)
             => await this.Send(command);
 
+        [HttpPut]
+        [Authorize]
+        [Route(Id)]
+        public async Task<ActionResult> Edit(int id, EditTrainingCommand command)
+            => await this.Send(command.SetId(id));
     }
 }

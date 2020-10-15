@@ -6,7 +6,7 @@
 
     public interface ITrainingsFactory : IFactory<Training>
     {
-        ITrainingsFactory WithType(string category);
+        ITrainingsFactory WithCategory(string category);
 
         ITrainingsFactory WithTrainer(string firstName, string lastName);
 
@@ -21,5 +21,7 @@
         ITrainingsFactory WithIsRepeated(bool isRepeated);
 
         ITrainingsFactory WithPrice(decimal price);
+
+        Trainer BuildTrainer();
     }
 }

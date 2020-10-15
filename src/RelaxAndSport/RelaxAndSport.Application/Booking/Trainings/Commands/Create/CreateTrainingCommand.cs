@@ -23,10 +23,20 @@
 
             public async Task<CreateTrainingOutputModel> Handle(CreateTrainingCommand request, CancellationToken cancellationToken)
             {
+                var trainer = await this.trainingsRepository
+                    .GetTrainer(request.TrainerFirstName, request.TrainerLastName, cancellationToken);
+
+                if(trainer == null)
+                {
+                    trainer = this.trainingsFactory
+                        .WithTrainer(request.TrainerFirstName, request.TrainerLastName)
+                        .BuildTrainer();
+                }
+
                 var training = this.trainingsFactory
-                    .WithType(request.Type)
-                    .WithTrainer(request.TrainerFirstName, request.TrainerLastName)
+                    .WithCategory(request.Category)
                     .WithDate(request.Date)
+                    .WithTrainer(trainer)
                     .WithDuration(request.Duration)
                     .WithSlots(request.Slots)
                     .WithPrice(request.Price)
