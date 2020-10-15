@@ -39,6 +39,7 @@
             }
 
             this.Data.Trainings.Remove(training);
+            await this.Data.SaveChangesAsync();
 
             return true;
         }
