@@ -5,6 +5,8 @@
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Create;
     using RelaxAndSport.Application.Booking.Trainings.Queries.All;
+    using RelaxAndSport.Application.Booking.Trainings.Queries.Details;
+    using RelaxAndSport.Application.Common;
     using RelaxAndSport.Web.Common;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -14,6 +16,11 @@
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TrainingOutputModel>>> GetAll([FromQuery] GetAllTrainingsQuery command)
             => await this.Send(command);
+
+        [HttpGet]
+        [Route(Id)]
+        public async Task<ActionResult<TrainingOutputModel>> Details(int id, [FromRoute] TrainingDetailsQuery command)
+            => await this.Send(command.SetId(id));
 
         [HttpPost]
         [Authorize]

@@ -59,5 +59,17 @@
             return this.mapper
                 .Map<IEnumerable<TrainingOutputModel>>(allTrainings);
         }
+
+        public async Task<TrainingOutputModel> GetById(int id, CancellationToken cancellationToken = default)
+        {
+            var training = await this
+                .Data
+                .Trainings
+                .Include(t => t.Trainer)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            return this.mapper
+                .Map<TrainingOutputModel>(training);
+        }
     }
 }

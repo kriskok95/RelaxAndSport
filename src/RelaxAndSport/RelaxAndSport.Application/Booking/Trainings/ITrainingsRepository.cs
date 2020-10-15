@@ -16,5 +16,7 @@
         Task<Trainer> GetTrainer(int id, CancellationToken cancellationToken = default);
 
         Task<IEnumerable<TrainingOutputModel>> GetAll(CancellationToken cancellationToken = default);
+
+        Task<TrainingOutputModel> GetById(int id, CancellationToken cancellationToken = default);
     }
 }
