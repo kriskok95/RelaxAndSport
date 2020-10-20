@@ -4,6 +4,7 @@
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Domain.Booking.Factories.Trainings;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -11,11 +12,11 @@
     {
         public class EditTrainingCommandHandler : IRequestHandler<EditTrainingCommand, Result>
         {
-            private readonly ITrainingsRepository trainingsRepository;
+            private readonly ITrainingsDomainRepository trainingsRepository;
             private readonly ITrainingsFactory trainingsFactory;
 
             public EditTrainingCommandHandler(
-                ITrainingsRepository trainingsRepository,
+                ITrainingsDomainRepository trainingsRepository,
                 ITrainingsFactory trainingsFactory)
             {
                 this.trainingsRepository = trainingsRepository;

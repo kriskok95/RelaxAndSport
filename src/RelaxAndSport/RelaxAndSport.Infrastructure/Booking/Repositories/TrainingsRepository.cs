@@ -5,12 +5,15 @@
     using RelaxAndSport.Application.Booking.Trainings;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal class TrainingsRepository : DataRepository<IBookingDbContext, Training>, ITrainingsRepository
+    internal class TrainingsRepository : DataRepository<IBookingDbContext, Training>, 
+        ITrainingsDomainRepository,
+        ITrainingsQueryRepository
     {
         private readonly IMapper mapper;
 

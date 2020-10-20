@@ -7,20 +7,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public interface ITrainingsRepository : IRepository<Training>
+    public interface ITrainingsQueryRepository : IQueryRepository<Training>
     {
-        Task<Training> Find(int id, CancellationToken cancellationToken = default);
-
-        Task<bool> Delete(int id, CancellationToken cancellationToken = default);
-
-        Task<Trainer> GetTrainer(int id, CancellationToken cancellationToken = default);
-
         Task<IEnumerable<TrainingOutputModel>> GetAll(CancellationToken cancellationToken = default);
 
         Task<TrainingOutputModel> GetTrainingOutputModelById(int id, CancellationToken cancellationToken = default);
-
-        Task<Training> GetById(int id, CancellationToken cancellationToken = default);
-
-        Task<Trainer> GetTrainer(string trainerFirstName, string trainerLastName, CancellationToken cancellationToken);
     }
 }

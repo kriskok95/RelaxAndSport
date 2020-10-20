@@ -4,6 +4,7 @@ namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Edit
     using MediatR;
     using RelaxAndSport.Application.Booking.Massages;
     using RelaxAndSport.Application.Common;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -16,12 +17,12 @@ namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Edit
 
         public class EditMassageAppointmentCommandHandler : IRequestHandler<EditMassageAppointmentCommand, Result>
         {
-            private readonly IMassagesAppointmentsRepository massagesAppointmentsRepository;
-            private readonly IMassagesRepository massagesRepository;
+            private readonly IMassagesAppointmentsDomainRepository massagesAppointmentsRepository;
+            private readonly IMassagesDomainRepository massagesRepository;
 
             public EditMassageAppointmentCommandHandler(
-                IMassagesAppointmentsRepository massagesAppointmentsRepository,
-                IMassagesRepository massagesRepository)
+                IMassagesAppointmentsDomainRepository massagesAppointmentsRepository,
+                IMassagesDomainRepository massagesRepository)
             {
                 this.massagesAppointmentsRepository = massagesAppointmentsRepository;
                 this.massagesRepository = massagesRepository;

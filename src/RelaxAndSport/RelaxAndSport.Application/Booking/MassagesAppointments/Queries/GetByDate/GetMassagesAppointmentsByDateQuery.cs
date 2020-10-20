@@ -13,10 +13,10 @@
 
         public class GetMassagesAppointmentsByDateQueryHandler : IRequestHandler<GetMassagesAppointmentsByDateQuery, IEnumerable<MassageAppointmentOutputModel>>
         {
-            private readonly IMassagesAppointmentsRepository massagesAppointmentsRepository;
+            private readonly IMassagesAppointmentsQueryRepository massagesAppointmentsRepository;
 
             public GetMassagesAppointmentsByDateQueryHandler(
-                IMassagesAppointmentsRepository massagesAppointmentsRepository)
+                IMassagesAppointmentsQueryRepository massagesAppointmentsRepository)
             {
                 this.massagesAppointmentsRepository = massagesAppointmentsRepository;
             }

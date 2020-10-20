@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Booking\MassagesSchedule\Commands\**" />
+    <Compile Remove="Booking\TrainingsAppointments\Queries\**" />
+    <EmbeddedResource Remove="Booking\MassagesSchedule\Commands\**" />
+    <EmbeddedResource Remove="Booking\TrainingsAppointments\Queries\**" />
+    <None Remove="Booking\MassagesSchedule\Commands\**" />
+    <None Remove="Booking\TrainingsAppointments\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="FluentValidation" Version="9.2.2" />
     <PackageReference Include="MediatR" Version="8.1.0" />
@@ -17,11 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RelaxAndSport\RelaxAndSport.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Booking\MassagesSchedule\Commands\" />
-    <Folder Include="Booking\TrainingsAppointments\Queries\" />
   </ItemGroup>
 
 </Project>

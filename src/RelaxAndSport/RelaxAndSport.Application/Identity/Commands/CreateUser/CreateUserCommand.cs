@@ -4,6 +4,7 @@
     using RelaxAndSport.Application.Booking.Client;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Domain.Booking.Factories.Client;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -12,12 +13,12 @@
         public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result>
         {
             private readonly IIdentity identity;
-            private readonly IClientRepository clientRepository;
+            private readonly IClientDomainRepository clientRepository;
             private readonly IClientFactory clientFactory;
 
             public CreateUserCommandHandler(
                 IIdentity identity,
-                IClientRepository clientRepository,
+                IClientDomainRepository clientRepository,
                 IClientFactory clientFactory)
             {
                 this.identity = identity;

@@ -2,13 +2,14 @@
 {
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Domain.Booking.Events;
+    using RelaxAndSport.Domain.Statistics.Repositories;
     using System.Threading.Tasks;
 
     public class MassageAppointmentAddedEventHandler : IEventHandler<MassageAppointmentAddedEvent>
     {
-        private readonly IStatisticsRepository statisticsRepository;
+        private readonly IStatisticsDomainRepository statisticsRepository;
 
-        public MassageAppointmentAddedEventHandler(IStatisticsRepository statisticsRepository)
+        public MassageAppointmentAddedEventHandler(IStatisticsDomainRepository statisticsRepository)
             => this.statisticsRepository = statisticsRepository;
 
         public Task Handle(MassageAppointmentAddedEvent domainEvent)

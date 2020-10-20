@@ -11,10 +11,10 @@
     {
         public class GetAllTrainingsQueryHandler : IRequestHandler<GetAllTrainingsQuery, IEnumerable<TrainingOutputModel>>
         {
-            private readonly ITrainingsRepository trainingsRepository;
+            private readonly ITrainingsQueryRepository trainingsRepository;
 
             public GetAllTrainingsQueryHandler(
-                ITrainingsRepository trainingsRepository)
+                ITrainingsQueryRepository trainingsRepository)
             {
                 this.trainingsRepository = trainingsRepository;
             }

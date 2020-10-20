@@ -9,9 +9,9 @@
     {
         public class GetStatisticsQueryHandler : IRequestHandler<GetStatisticsQuery, GetStatisticsOutputModel>
         {
-            private readonly IStatisticsRepository statisticsRepository;
+            private readonly IStatisticsQueryRepository statisticsRepository;
 
-            public GetStatisticsQueryHandler(IStatisticsRepository statisticsRepository)
+            public GetStatisticsQueryHandler(IStatisticsQueryRepository statisticsRepository)
                 => this.statisticsRepository = statisticsRepository;
 
             public async Task<GetStatisticsOutputModel> Handle(GetStatisticsQuery request, CancellationToken cancellationToken)

@@ -10,10 +10,10 @@
     {
         public class TrainingDetailsQueryHandler : IRequestHandler<TrainingDetailsQuery, TrainingOutputModel>
         {
-            private readonly ITrainingsRepository trainingsRepository;
+            private readonly ITrainingsQueryRepository trainingsRepository;
 
             public TrainingDetailsQueryHandler(
-                ITrainingsRepository trainingsRepository)
+                ITrainingsQueryRepository trainingsRepository)
             {
                 this.trainingsRepository = trainingsRepository;
             }

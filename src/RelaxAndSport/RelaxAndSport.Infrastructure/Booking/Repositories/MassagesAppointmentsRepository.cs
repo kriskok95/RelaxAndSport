@@ -6,6 +6,7 @@
     using RelaxAndSport.Application.Booking.MassagesAppointments.Queries.Common;
     using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using System;
     using System.Collections.Generic;
@@ -13,7 +14,9 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal class MassagesAppointmentsRepository : DataRepository<IBookingDbContext, MassageAppointment>, IMassagesAppointmentsRepository
+    internal class MassagesAppointmentsRepository : DataRepository<IBookingDbContext, MassageAppointment>,
+        IMassagesAppointmentsDomainRepository,
+        IMassagesAppointmentsQueryRepository
     {
         private readonly IMapper mapper;
 

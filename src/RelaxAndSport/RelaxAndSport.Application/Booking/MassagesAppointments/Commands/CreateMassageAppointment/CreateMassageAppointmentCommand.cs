@@ -1,12 +1,11 @@
 ﻿namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.CreateMassageAppointment
 {
     using MediatR;
-    using RelaxAndSport.Application.Booking.Client;
-    using RelaxAndSport.Application.Booking.Massages;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Common;
     using RelaxAndSport.Application.Booking.MassagesSchedule;
     using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Domain.Booking.Factories.MassagesAppointments;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -15,19 +14,19 @@
         public class CraeteMassageAppointmentCommandHandler : IRequestHandler<CreateMassageAppointmentCommand, CreateMassageAppointmentOutputModel>
         {
             private readonly ICurrentUser currentUser;
-            private readonly IClientRepository clientRepository;
-            private readonly IMassagesScheduleRepository massagesScheduleRepository;
-            private readonly IMassagesRepository massagesRepository;
+            private readonly IClientDomainRepository clientRepository;
+            private readonly IMassagesScheduleDomainRepository massagesScheduleRepository;
+            private readonly IMassagesDomainRepository massagesRepository;
             private readonly IMassagesAppointmentsFactory massagesAppointmentsFactory;
-            private readonly IMassagesAppointmentsRepository massagesAppointmentsRepository;
+            private readonly IMassagesAppointmentsDomainRepository massagesAppointmentsRepository;
 
             public CraeteMassageAppointmentCommandHandler(
                 ICurrentUser currentUser,
-                IClientRepository clientRepository,
-                IMassagesScheduleRepository massagesScheduleRepository,
-                IMassagesRepository massagesRepository,
+                IClientDomainRepository clientRepository,
+                IMassagesScheduleDomainRepository massagesScheduleRepository,
+                IMassagesDomainRepository massagesRepository,
                 IMassagesAppointmentsFactory massagesAppointmentsFactory,
-                IMassagesAppointmentsRepository massagesAppointmentsRepository)
+                IMassagesAppointmentsDomainRepository massagesAppointmentsRepository)
             {
                 this.currentUser = currentUser;
                 this.clientRepository = clientRepository;

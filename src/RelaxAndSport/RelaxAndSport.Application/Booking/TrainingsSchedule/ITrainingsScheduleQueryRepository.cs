@@ -5,8 +5,8 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public interface ITrainingsScheduleRepository : IRepository<TrainingsSchedule>
+    public interface ITrainingsScheduleQueryRepository : IQueryRepository<TrainingsSchedule>
     {
-        Task<TrainingsSchedule> GetTrainingsSchedule(CancellationToken cancellationToken = default);
+        
     }
 }

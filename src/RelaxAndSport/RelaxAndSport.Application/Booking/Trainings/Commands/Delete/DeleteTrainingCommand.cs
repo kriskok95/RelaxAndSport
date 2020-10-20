@@ -2,6 +2,7 @@
 {
     using MediatR;
     using RelaxAndSport.Application.Common;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -9,10 +10,10 @@
     {
         public class DeleteTrainingCommandHandler : IRequestHandler<DeleteTrainingCommand, Result>
         {
-            private readonly ITrainingsRepository trainingsRepository;
+            private readonly ITrainingsDomainRepository trainingsRepository;
 
             public DeleteTrainingCommandHandler(
-                ITrainingsRepository trainingsRepository)
+                ITrainingsDomainRepository trainingsRepository)
             {
                 this.trainingsRepository = trainingsRepository;
             }

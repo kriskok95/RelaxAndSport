@@ -7,14 +7,8 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public interface IMassagesRepository : IRepository<Massage>
+    public interface IMassagesQueryRepository : IQueryRepository<Massage>
     {
-        Task<Massage> Find(int id, CancellationToken cancellationToken = default);
-
-        Task<bool> HasMassage(int id, CancellationToken cancellationToken);
-
-        Task<bool> Delete(int id, CancellationToken cancellationToken = default);
-
         Task<MassageOutputModel> GetDetails(int id, CancellationToken cancellationToken);
 
         Task<IEnumerable<MassageOutputModel>> GetAllMassagesDetails(CancellationToken cancellationToken);

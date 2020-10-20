@@ -2,6 +2,7 @@
 {
     using MediatR;
     using RelaxAndSport.Application.Common;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -9,9 +10,9 @@
     {
         public class DeleteMassageCommandHandler : IRequestHandler<DeleteMassageCommand, Result>
         {
-            private readonly IMassagesRepository massagesRepository;
+            private readonly IMassagesDomainRepository massagesRepository;
 
-            public DeleteMassageCommandHandler(IMassagesRepository massagesRepository)
+            public DeleteMassageCommandHandler(IMassagesDomainRepository massagesRepository)
                 => this.massagesRepository = massagesRepository;
 
             public async Task<Result> Handle(DeleteMassageCommand request, CancellationToken cancellationToken)

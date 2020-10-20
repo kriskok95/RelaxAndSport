@@ -10,9 +10,9 @@
     {
         public class MassageDetailsHandler : IRequestHandler<MassageDetailsQuery, MassageOutputModel>
         {
-            private readonly IMassagesRepository massagesRepository;
+            private readonly IMassagesQueryRepository massagesRepository;
 
-            public MassageDetailsHandler(IMassagesRepository massagesRepository)
+            public MassageDetailsHandler(IMassagesQueryRepository massagesRepository)
                 => this.massagesRepository = massagesRepository;
             
 
