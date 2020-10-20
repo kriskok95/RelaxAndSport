@@ -3,6 +3,7 @@
     using MediatR;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
     using RelaxAndSport.Domain.Booking.Factories.Trainings;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -10,11 +11,11 @@
     {
         public class CreateTrainingCommandHandler : IRequestHandler<CreateTrainingCommand, CreateTrainingOutputModel>
         {
-            private readonly ITrainingsRepository trainingsRepository;
+            private readonly ITrainingsDomainRepository trainingsRepository;
             private readonly ITrainingsFactory trainingsFactory;
 
             public CreateTrainingCommandHandler(
-                ITrainingsRepository trainingsRepository,
+                ITrainingsDomainRepository trainingsRepository,
                 ITrainingsFactory trainingsFactory)
             {
                 this.trainingsRepository = trainingsRepository;

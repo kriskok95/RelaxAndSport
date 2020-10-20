@@ -3,6 +3,7 @@
     using MediatR;
     using RelaxAndSport.Application.Booking.Massages.Commands.Common;
     using RelaxAndSport.Application.Common;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -10,9 +11,9 @@
     {
         public class EditMassageHandler : IRequestHandler<EditMassageCommand, Result>
         {
-            private readonly IMassagesRepository massagesRepository;
+            private readonly IMassagesDomainRepository massagesRepository;
 
-            public EditMassageHandler(IMassagesRepository massagesRepository)
+            public EditMassageHandler(IMassagesDomainRepository massagesRepository)
                 => this.massagesRepository = massagesRepository;
 
             public async Task<Result> Handle(EditMassageCommand request, CancellationToken cancellationToken)

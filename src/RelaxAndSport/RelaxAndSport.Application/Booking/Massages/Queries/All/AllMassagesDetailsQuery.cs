@@ -11,9 +11,9 @@
     {
         public class AllMassagesDetailsQueryHandler : IRequestHandler<AllMassagesDetailsQuery, IEnumerable<MassageOutputModel>>
         {
-            IMassagesRepository massagesRepository;
+            IMassagesQueryRepository massagesRepository;
 
-            public AllMassagesDetailsQueryHandler(IMassagesRepository massagesRepository)
+            public AllMassagesDetailsQueryHandler(IMassagesQueryRepository massagesRepository)
                 => this.massagesRepository = massagesRepository;
 
             public async Task<IEnumerable<MassageOutputModel>> Handle(AllMassagesDetailsQuery request, CancellationToken cancellationToken)

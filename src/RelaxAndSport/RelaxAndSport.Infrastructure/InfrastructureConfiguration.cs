@@ -9,6 +9,7 @@
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Application.Identity;
+    using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Infrastructure.Booking;
     using RelaxAndSport.Infrastructure.Common;
     using RelaxAndSport.Infrastructure.Common.Events;
@@ -46,8 +47,9 @@
                 .Scan(scan => scan
                     .FromCallingAssembly()
                     .AddClasses(classes => classes
-                        .AssignableTo(typeof(IRepository<>)))
-                    .AsMatchingInterface()
+                        .AssignableTo(typeof(IDomainRepository<>))
+                        .AssignableTo(typeof(IQueryRepository<>)))
+                    .AsImplementedInterfaces()
                     .WithTransientLifetime());
 
         private static IServiceCollection AddIdentity(

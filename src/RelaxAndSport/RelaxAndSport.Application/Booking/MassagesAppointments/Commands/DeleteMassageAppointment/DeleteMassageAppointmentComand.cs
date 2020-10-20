@@ -5,6 +5,7 @@
     using RelaxAndSport.Application.Booking.MassagesSchedule;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Common.Contracts;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -14,16 +15,16 @@
 
         public class DeleteMassageAppointmentCommandHandler : IRequestHandler<DeleteMassageAppointmentComand, Result>
         {
-            IMassagesScheduleRepository massagesScheduleRepository;
-            IMassagesAppointmentsRepository massagesAppointmentsRepository;
+            IMassagesScheduleDomainRepository massagesScheduleRepository;
+            IMassagesAppointmentsDomainRepository massagesAppointmentsRepository;
             ICurrentUser currentUser;
-            IClientRepository clientRepository;
+            IClientDomainRepository clientRepository;
 
             public DeleteMassageAppointmentCommandHandler(
-                IMassagesScheduleRepository massagesScheduleRepository,
-                IMassagesAppointmentsRepository massagesAppointmentsRepository,
+                IMassagesScheduleDomainRepository massagesScheduleRepository,
+                IMassagesAppointmentsDomainRepository massagesAppointmentsRepository,
                 ICurrentUser currentUser,
-                IClientRepository clientRepository)
+                IClientDomainRepository clientRepository)
             {
                 this.massagesScheduleRepository = massagesScheduleRepository;
                 this.massagesAppointmentsRepository = massagesAppointmentsRepository;

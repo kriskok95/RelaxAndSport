@@ -6,7 +6,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal abstract class DataRepository<TDbContext, TEntity> : IRepository<TEntity>
+    internal abstract class DataRepository<TDbContext, TEntity> : Application.Common.Contracts.IQueryRepository<TEntity>
         where TDbContext : IDbContext
         where TEntity : class, IAggregateRoot
     {

@@ -3,6 +3,7 @@
     using MediatR;
     using RelaxAndSport.Application.Booking.Massages.Commands.Common;
     using RelaxAndSport.Domain.Booking.Factories.Massages;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -11,11 +12,11 @@
         public class CreateMassageCommandHandler : IRequestHandler<CreateMassageCommand, CreateMassageOutputModel>
         {
             private readonly IMassagesFactory massagesFactory;
-            private readonly IMassagesRepository massagesRepository;
+            private readonly IMassagesDomainRepository massagesRepository;
 
             public CreateMassageCommandHandler(
                 IMassagesFactory massagesFactory,
-                IMassagesRepository massagesRepository)
+                IMassagesDomainRepository massagesRepository)
             {
                 this.massagesFactory = massagesFactory;
                 this.massagesRepository = massagesRepository;

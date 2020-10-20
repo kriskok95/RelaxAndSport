@@ -5,8 +5,8 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public interface IClientRepository : IRepository<Client>
+    public interface IClientQueryRepository : IQueryRepository<Client>
     {
-        Task<Client> FindByUser(string userId, CancellationToken cancellationToken);
+        
     }
 }

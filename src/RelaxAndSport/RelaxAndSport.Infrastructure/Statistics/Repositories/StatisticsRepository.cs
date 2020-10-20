@@ -9,8 +9,11 @@
     using RelaxAndSport.Application.Statistics.Commands.Get;
     using Microsoft.EntityFrameworkCore;
     using AutoMapper;
+    using RelaxAndSport.Domain.Statistics.Repositories;
 
-    internal class StatisticsRepository : DataRepository<IStatisticsDbContext, Statistics>, IStatisticsRepository
+    internal class StatisticsRepository : DataRepository<IStatisticsDbContext, Statistics>,
+        IStatisticsDomainRepository,
+        IStatisticsQueryRepository
     {
         private readonly IMapper mapper;
 

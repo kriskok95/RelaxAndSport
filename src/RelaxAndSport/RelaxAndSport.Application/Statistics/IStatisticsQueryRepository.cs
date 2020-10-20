@@ -6,12 +6,8 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public interface IStatisticsRepository : IRepository<Statistics>
+    public interface IStatisticsQueryRepository : IQueryRepository<Statistics>
     {
-        Task IncrementMassagesAppointments(CancellationToken cancellationToken = default);
-
-        Task IncrementTrainingsAppointments(CancellationToken cancellationToken = default);
-
         Task<GetStatisticsOutputModel> GetStatistics(CancellationToken cancellationToken = default);
     }
 }

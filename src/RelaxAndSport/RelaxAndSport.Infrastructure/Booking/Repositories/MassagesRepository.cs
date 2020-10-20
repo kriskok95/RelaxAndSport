@@ -5,12 +5,15 @@
     using RelaxAndSport.Application.Booking.Massages;
     using RelaxAndSport.Application.Booking.Massages.Queries.Common;
     using RelaxAndSport.Domain.Booking.Models.Massages;
+    using RelaxAndSport.Domain.Booking.Repositories;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal class MassagesRepository : DataRepository<IBookingDbContext, Massage>, IMassagesRepository
+    internal class MassagesRepository : DataRepository<IBookingDbContext, Massage>,
+        IMassagesDomainRepository,
+        IMassagesQueryRepository
     {
         private readonly IMapper mapper;
 
