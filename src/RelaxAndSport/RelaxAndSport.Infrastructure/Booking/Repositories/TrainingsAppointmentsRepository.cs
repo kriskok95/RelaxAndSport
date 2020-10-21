@@ -4,12 +4,14 @@
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.TrainingsAppointments;
     using RelaxAndSport.Application.Booking.TrainingsAppointments.Queries.Common;
+    using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
     using RelaxAndSport.Domain.Booking.Repositories;
     using RelaxAndSport.Infrastructure.Common.Persistence;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
 
     internal class TrainingsAppointmentsRepository : DataRepository<IBookingDbContext, TrainingAppointment>,
@@ -20,7 +22,7 @@
 
         public TrainingsAppointmentsRepository(
             IBookingDbContext db,
-            IMapper mapper) 
+            IMapper mapper)
             : base(db)
         {
             this.mapper = mapper;
@@ -37,6 +39,20 @@
 
             return this.mapper
                 .Map<IEnumerable<TrainingAppointmentOutputModel>>(trainingsAppointments);
+        }
+
+        public async Task<TrainingAppointment> GetTrainingAppointment(int id, CancellationToken cancellationToken)
+        {
+            var trainingAppointment = await this.Data
+            .TrainingAppointments
+            .SingleOrDefaultAsync(ta => ta.Id == id, cancellationToken);
+
+            if(trainingAppointment == null)
+            {
+                throw new InvalidTrainingAppointmentException($"Training appointment with ID: {id} doesn't exists.");
+            }
+
+            return trainingAppointment;
         }
     }
 }

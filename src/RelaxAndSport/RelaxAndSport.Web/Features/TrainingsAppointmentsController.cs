@@ -3,8 +3,10 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using RelaxAndSport.Application.Booking.TrainingsAppointments.Commands.Create;
+    using RelaxAndSport.Application.Booking.TrainingsAppointments.Commands.Edit;
     using RelaxAndSport.Application.Booking.TrainingsAppointments.Queries.Common;
     using RelaxAndSport.Application.Booking.TrainingsAppointments.Queries.GetByDate;
+    using RelaxAndSport.Application.Common;
     using RelaxAndSport.Web.Common;
     using System;
     using System.Collections.Generic;
@@ -24,5 +26,11 @@
         [Authorize]
         public async Task<ActionResult<CreateTrainingAppointmentOutputModel>> Create(CreateTrainingAppointmentCommand command)
             => await this.Send(command);
+
+        [HttpPut]
+        [Authorize]
+        [Route(Id)]
+        public async Task<ActionResult<Result>> Edit(int id, EditTrainingAppointmentCommand command)
+            => await this.Send(command.SetId(id));
     }
 }

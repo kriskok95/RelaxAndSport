@@ -3,6 +3,7 @@
     using RelaxAndSport.Domain.Booking.Models.Trainings;
     using RelaxAndSport.Domain.Common;
     using RelaxAndSport.Domain.Common.Models;
+    using System;
 
     public class TrainingAppointment : Entity<int>, IAggregateRoot
     {
@@ -23,5 +24,19 @@
         public Training Training { get; private set; }
 
         public DateTimeRange TimeRange { get; private set; }
+
+        public TrainingAppointment UpdateTraining(Training training)
+        {
+            this.Training = training;
+
+            return this;
+        }
+
+        public TrainingAppointment UpdateTimeRange(DateTime startDate)
+        {
+            this.TimeRange = new DateTimeRange(startDate, TimeSpan.FromMinutes(this.Training.Duration));
+
+            return this;
+        }
     }
 }
