@@ -7,11 +7,8 @@
 
   <ItemGroup>
     <Compile Remove="Booking\MassagesSchedule\Commands\**" />
-    <Compile Remove="Booking\TrainingsAppointments\Queries\**" />
     <EmbeddedResource Remove="Booking\MassagesSchedule\Commands\**" />
-    <EmbeddedResource Remove="Booking\TrainingsAppointments\Queries\**" />
     <None Remove="Booking\MassagesSchedule\Commands\**" />
-    <None Remove="Booking\TrainingsAppointments\Queries\**" />
   </ItemGroup>
 
   <ItemGroup>

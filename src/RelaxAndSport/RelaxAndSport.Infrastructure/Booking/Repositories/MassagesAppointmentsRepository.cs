@@ -64,7 +64,7 @@
             var massageAppointments = await this.Data
                 .MassageAppointments
                 .Include(ma => ma.Massage)
-                .Where(ma => ma.TimeRange.End.Date == date)
+                .Where(ma => ma.TimeRange.End.Date == date.Date)
                 .ToListAsync();
 
             return this.mapper
