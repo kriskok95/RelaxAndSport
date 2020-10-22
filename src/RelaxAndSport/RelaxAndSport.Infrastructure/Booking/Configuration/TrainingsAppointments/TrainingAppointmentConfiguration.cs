@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Infrastructure.Booking.Configuration.TrainingsSchedule
+﻿namespace RelaxAndSport.Infrastructure.Booking.Configuration.TrainingsAppointments
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -12,12 +12,12 @@
                 .HasKey(ta => ta.Id);
 
             builder
-                .OwnsOne(ta => ta.TimeRange, o =>
+                .OwnsOne(ta => ta.TimeRange, t =>
                 {
-                    o.WithOwner();
+                    t.WithOwner();
 
-                    o.Property(tr => tr.Start);
-                    o.Property(tr => tr.End);
+                    t.Property(tr => tr.Start);
+                    t.Property(tr => tr.End);
                 });
         }
     }

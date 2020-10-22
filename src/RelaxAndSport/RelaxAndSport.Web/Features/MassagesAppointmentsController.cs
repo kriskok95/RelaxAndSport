@@ -28,16 +28,16 @@
         public async Task<ActionResult<CreateMassageAppointmentOutputModel>> Create(CreateMassageAppointmentCommand command)
             => await this.Send(command);
 
-        [HttpDelete]
-        [Authorize]
-        [Route(Id)]
-        public async Task<ActionResult<Result>> Delete([FromRoute] DeleteMassageAppointmentComand command)
-            => await this.Send(command);
-
         [HttpPut]
         [Authorize]
         [Route(Id)]
         public async Task<ActionResult<Result>> Edit(int id, EditMassageAppointmentCommand command)
             => await this.Send(command.SetId(id));
+
+        [HttpDelete]
+        [Authorize]
+        [Route(Id)]
+        public async Task<ActionResult<Result>> Delete([FromRoute] DeleteMassageAppointmentComand command)
+            => await this.Send(command);
     }
 }

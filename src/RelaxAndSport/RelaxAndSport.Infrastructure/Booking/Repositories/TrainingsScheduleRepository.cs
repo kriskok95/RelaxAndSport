@@ -22,6 +22,7 @@ namespace RelaxAndSport.Infrastructure.Booking.Repositories
             => await this
             .Data
             .TrainingsSchedules
+            .Include(ts => ts.TrainingAppointments)
             .SingleOrDefaultAsync();
     }
 }

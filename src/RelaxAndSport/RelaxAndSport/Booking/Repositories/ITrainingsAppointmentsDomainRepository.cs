@@ -8,5 +8,7 @@
     public interface ITrainingsAppointmentsDomainRepository : IDomainRepository<TrainingAppointment>
     {
         Task<TrainingAppointment> GetTrainingAppointment(int id, CancellationToken cancellationToken);
+
+        Task<bool> Delete(TrainingAppointment trainingAppointment, CancellationToken cancellationToken);
     }
 }

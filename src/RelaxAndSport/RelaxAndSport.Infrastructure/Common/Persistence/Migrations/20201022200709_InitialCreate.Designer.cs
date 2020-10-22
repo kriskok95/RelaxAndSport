@@ -10,7 +10,7 @@ using RelaxAndSport.Infrastructure.Common.Persistence;
 namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 {
     [DbContext(typeof(RelaxAndSportDbContext))]
-    [Migration("20201004180514_InitialCreate")]
+    [Migration("20201022200709_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,9 +169,13 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Client");
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.Massages.Massage", b =>
@@ -202,7 +206,7 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.ToTable("Massages");
                 });
 
-            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.MassagesSchedule.MassageAppointment", b =>
+            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.MassagesAppointments.MassageAppointment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -212,19 +216,19 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.Property<int?>("ClientId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MassageAppointmentId")
+                    b.Property<int>("MassageId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MassageId")
+                    b.Property<int?>("MassagesScheduleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
 
-                    b.HasIndex("MassageAppointmentId");
-
                     b.HasIndex("MassageId");
+
+                    b.HasIndex("MassagesScheduleId");
 
                     b.ToTable("MassageAppointments");
                 });
@@ -239,6 +243,33 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MassagesSchedules");
+                });
+
+            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments.TrainingAppointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrainingId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TrainingsScheduleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("TrainingId");
+
+                    b.HasIndex("TrainingsScheduleId");
+
+                    b.ToTable("TrainingAppointments");
                 });
 
             modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.Trainings.Trainer", b =>
@@ -277,6 +308,9 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsRepeated")
                         .HasColumnType("bit");
 
@@ -296,33 +330,6 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.ToTable("Trainings");
                 });
 
-            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.TrainingsSchedule.TrainingAppointment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AppointmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TrainingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppointmentId");
-
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("TrainingId");
-
-                    b.ToTable("TrainingAppointments");
-                });
-
             modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.TrainingsSchedule.TrainingsSchedule", b =>
                 {
                     b.Property<int>("Id")
@@ -333,6 +340,24 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TrainingsSchedules");
+                });
+
+            modelBuilder.Entity("RelaxAndSport.Domain.Statistics.Models.Statistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TotalActiveMassageAppointments")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalActiveTrainingAppointments")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Statistics");
                 });
 
             modelBuilder.Entity("RelaxAndSport.Infrastructure.Identity.User", b =>
@@ -475,29 +500,29 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
 
                             b1.HasKey("ClientId");
 
-                            b1.ToTable("Client");
+                            b1.ToTable("Clients");
 
                             b1.WithOwner()
                                 .HasForeignKey("ClientId");
                         });
                 });
 
-            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.MassagesSchedule.MassageAppointment", b =>
+            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.MassagesAppointments.MassageAppointment", b =>
                 {
                     b.HasOne("RelaxAndSport.Domain.Booking.Models.Client.Client", null)
                         .WithMany("MassageAppointments")
                         .HasForeignKey("ClientId");
-
-                    b.HasOne("RelaxAndSport.Domain.Booking.Models.MassagesSchedule.MassagesSchedule", null)
-                        .WithMany("MassageAppointments")
-                        .HasForeignKey("MassageAppointmentId")
-                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("RelaxAndSport.Domain.Booking.Models.Massages.Massage", "Massage")
                         .WithMany()
                         .HasForeignKey("MassageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("RelaxAndSport.Domain.Booking.Models.MassagesSchedule.MassagesSchedule", null)
+                        .WithMany("MassageAppointments")
+                        .HasForeignKey("MassagesScheduleId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.OwnsOne("RelaxAndSport.Domain.Common.Models.DateTimeRange", "TimeRange", b1 =>
                         {
@@ -521,22 +546,8 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.Trainings.Training", b =>
+            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments.TrainingAppointment", b =>
                 {
-                    b.HasOne("RelaxAndSport.Domain.Booking.Models.Trainings.Trainer", "Trainer")
-                        .WithMany()
-                        .HasForeignKey("TrainerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.TrainingsSchedule.TrainingAppointment", b =>
-                {
-                    b.HasOne("RelaxAndSport.Domain.Booking.Models.TrainingsSchedule.TrainingsSchedule", null)
-                        .WithMany("TrainingAppointments")
-                        .HasForeignKey("AppointmentId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("RelaxAndSport.Domain.Booking.Models.Client.Client", null)
                         .WithMany("TrainingAppointments")
                         .HasForeignKey("ClientId");
@@ -546,6 +557,11 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         .HasForeignKey("TrainingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("RelaxAndSport.Domain.Booking.Models.TrainingsSchedule.TrainingsSchedule", null)
+                        .WithMany("TrainingAppointments")
+                        .HasForeignKey("TrainingsScheduleId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.OwnsOne("RelaxAndSport.Domain.Common.Models.DateTimeRange", "TimeRange", b1 =>
                         {
@@ -567,6 +583,15 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("TrainingAppointmentId");
                         });
+                });
+
+            modelBuilder.Entity("RelaxAndSport.Domain.Booking.Models.Trainings.Training", b =>
+                {
+                    b.HasOne("RelaxAndSport.Domain.Booking.Models.Trainings.Trainer", "Trainer")
+                        .WithMany()
+                        .HasForeignKey("TrainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

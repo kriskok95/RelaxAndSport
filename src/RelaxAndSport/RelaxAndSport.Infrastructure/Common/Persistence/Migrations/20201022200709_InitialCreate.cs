@@ -49,18 +49,19 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Client",
+                name: "Clients",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: false),
                     FirstName = table.Column<string>(maxLength: 20, nullable: false),
                     LastName = table.Column<string>(maxLength: 20, nullable: false),
                     PhoneNumber_Number = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Client", x => x.Id);
+                    table.PrimaryKey("PK_Clients", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,6 +90,20 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MassagesSchedules", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Statistics",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TotalActiveMassageAppointments = table.Column<int>(nullable: false),
+                    TotalActiveTrainingAppointments = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Statistics", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -233,21 +248,15 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     TimeRange_Start = table.Column<DateTime>(nullable: true),
                     TimeRange_End = table.Column<DateTime>(nullable: true),
                     ClientId = table.Column<int>(nullable: true),
-                    MassageAppointmentId = table.Column<int>(nullable: true)
+                    MassagesScheduleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MassageAppointments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MassageAppointments_Client_ClientId",
+                        name: "FK_MassageAppointments_Clients_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Client",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_MassageAppointments_MassagesSchedules_MassageAppointmentId",
-                        column: x => x.MassageAppointmentId,
-                        principalTable: "MassagesSchedules",
+                        principalTable: "Clients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -256,6 +265,12 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         principalTable: "Massages",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MassageAppointments_MassagesSchedules_MassagesScheduleId",
+                        column: x => x.MassagesScheduleId,
+                        principalTable: "MassagesSchedules",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,6 +282,7 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     Category = table.Column<string>(nullable: false),
                     TrainerId = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
+                    Duration = table.Column<int>(nullable: false),
                     Slots = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
                     IsRepeated = table.Column<bool>(nullable: false)
@@ -291,22 +307,16 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                     TrainingId = table.Column<int>(nullable: false),
                     TimeRange_Start = table.Column<DateTime>(nullable: true),
                     TimeRange_End = table.Column<DateTime>(nullable: true),
-                    AppointmentId = table.Column<int>(nullable: true),
-                    ClientId = table.Column<int>(nullable: true)
+                    ClientId = table.Column<int>(nullable: true),
+                    TrainingsScheduleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TrainingAppointments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TrainingAppointments_TrainingsSchedules_AppointmentId",
-                        column: x => x.AppointmentId,
-                        principalTable: "TrainingsSchedules",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_TrainingAppointments_Client_ClientId",
+                        name: "FK_TrainingAppointments_Clients_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Client",
+                        principalTable: "Clients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -315,6 +325,12 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                         principalTable: "Trainings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TrainingAppointments_TrainingsSchedules_TrainingsScheduleId",
+                        column: x => x.TrainingsScheduleId,
+                        principalTable: "TrainingsSchedules",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -362,19 +378,14 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MassageAppointments_MassageAppointmentId",
-                table: "MassageAppointments",
-                column: "MassageAppointmentId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_MassageAppointments_MassageId",
                 table: "MassageAppointments",
                 column: "MassageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TrainingAppointments_AppointmentId",
-                table: "TrainingAppointments",
-                column: "AppointmentId");
+                name: "IX_MassageAppointments_MassagesScheduleId",
+                table: "MassageAppointments",
+                column: "MassagesScheduleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TrainingAppointments_ClientId",
@@ -385,6 +396,11 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 name: "IX_TrainingAppointments_TrainingId",
                 table: "TrainingAppointments",
                 column: "TrainingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TrainingAppointments_TrainingsScheduleId",
+                table: "TrainingAppointments",
+                column: "TrainingsScheduleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Trainings_TrainerId",
@@ -413,6 +429,9 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 name: "MassageAppointments");
 
             migrationBuilder.DropTable(
+                name: "Statistics");
+
+            migrationBuilder.DropTable(
                 name: "TrainingAppointments");
 
             migrationBuilder.DropTable(
@@ -422,19 +441,19 @@ namespace RelaxAndSport.Infrastructure.Common.Persistence.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "MassagesSchedules");
-
-            migrationBuilder.DropTable(
                 name: "Massages");
 
             migrationBuilder.DropTable(
-                name: "TrainingsSchedules");
+                name: "MassagesSchedules");
 
             migrationBuilder.DropTable(
-                name: "Client");
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Trainings");
+
+            migrationBuilder.DropTable(
+                name: "TrainingsSchedules");
 
             migrationBuilder.DropTable(
                 name: "Trainers");
