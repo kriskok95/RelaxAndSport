@@ -28,6 +28,23 @@
             this.mapper = mapper;
         }
 
+        public async Task<bool> Delete(TrainingAppointment trainingAppointment, CancellationToken cancellationToken)
+        {
+            if (trainingAppointment == null)
+            {
+                return false;
+            }
+
+            this.Data
+                .TrainingAppointments
+                .Remove(trainingAppointment);
+
+            await this.Data
+                .SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<IEnumerable<TrainingAppointmentOutputModel>> GetByDate(DateTime date)
         {
             var trainingsAppointments = await this

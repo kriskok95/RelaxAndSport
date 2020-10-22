@@ -28,6 +28,7 @@
                 throw new InvalidTrainingAppointmentException($"Training appointment with Id: {trainingAppointment} already exists in the schedule.");
             }
             this.CheckForOverlapsedTrainingAppointment(trainingAppointment);
+            this.trainingAppointments.Add(trainingAppointment);
             this.RaiseEvent(new TrainingAppointmentAddedEvent());
 
             return trainingAppointment;

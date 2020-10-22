@@ -1,8 +1,6 @@
 ﻿namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.DeleteMassageAppointment
 {
     using MediatR;
-    using RelaxAndSport.Application.Booking.Client;
-    using RelaxAndSport.Application.Booking.MassagesSchedule;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Domain.Booking.Repositories;
