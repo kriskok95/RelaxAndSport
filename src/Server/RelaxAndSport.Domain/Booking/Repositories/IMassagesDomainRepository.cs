@@ -12,5 +12,7 @@
         Task<bool> HasMassage(int id, CancellationToken cancellationToken);
 
         Task<bool> Delete(int id, CancellationToken cancellationToken = default);
+
+        Task ValidateMassageExistence(Massage massage, CancellationToken cancellationToken);
     }
 }

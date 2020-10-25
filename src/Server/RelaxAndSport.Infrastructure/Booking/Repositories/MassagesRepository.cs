@@ -4,6 +4,7 @@
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.Massages;
     using RelaxAndSport.Application.Booking.Massages.Queries.Common;
+    using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.Massages;
     using RelaxAndSport.Domain.Booking.Repositories;
     using RelaxAndSport.Infrastructure.Common.Persistence;
@@ -33,8 +34,6 @@
             .Data
             .Massages
             .AnyAsync(m => m.Id == id);
-            
-
 
         public async Task<bool> Delete(int id, CancellationToken cancellationToken = default)
         {
@@ -73,6 +72,19 @@
 
             return this.mapper
                 .Map<IEnumerable<MassageOutputModel>>(allMassages);
+        }
+
+        public async Task ValidateMassageExistence(Massage massage, CancellationToken cancellationToken)
+        {
+            var isMassageExists = await this
+                .Data
+                .Massages
+                .AnyAsync(m => m.Category == massage.Category, cancellationToken);
+
+            if (isMassageExists)
+            {
+                throw new InvalidMassageException($"Massage with category: {massage.Category} already exists.");
+            }
         }
     }
 }

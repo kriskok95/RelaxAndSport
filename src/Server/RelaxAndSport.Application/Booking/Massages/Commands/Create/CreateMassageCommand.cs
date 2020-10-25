@@ -31,6 +31,7 @@
                     .WithPrice(request.Price)
                     .Build();
 
+                await this.massagesRepository.ValidateMassageExistence(massage, cancellationToken);
                 await this.massagesRepository.Save(massage, cancellationToken);
 
                 return new CreateMassageOutputModel(massage.Id);

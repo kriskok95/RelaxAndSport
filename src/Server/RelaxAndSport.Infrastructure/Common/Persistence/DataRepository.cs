@@ -1,12 +1,11 @@
 ﻿namespace RelaxAndSport.Infrastructure.Common.Persistence
 {
-    using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Domain.Common;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal abstract class DataRepository<TDbContext, TEntity> : Application.Common.Contracts.IQueryRepository<TEntity>
+    internal abstract class DataRepository<TDbContext, TEntity> : IDomainRepository<TEntity>
         where TDbContext : IDbContext
         where TEntity : class, IAggregateRoot
     {

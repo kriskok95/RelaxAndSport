@@ -9,8 +9,6 @@
 
     public class DeleteMassageAppointmentComand : EntityCommand<int>, IRequest<Result>
     {
-        public int Id { get; set; }
-
         public class DeleteMassageAppointmentCommandHandler : IRequestHandler<DeleteMassageAppointmentComand, Result>
         {
             IMassagesScheduleDomainRepository massagesScheduleRepository;
