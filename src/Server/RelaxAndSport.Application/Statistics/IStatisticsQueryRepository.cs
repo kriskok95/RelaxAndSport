@@ -8,6 +8,6 @@
 
     public interface IStatisticsQueryRepository : IQueryRepository<Statistics>
     {
-        Task<GetStatisticsOutputModel> GetStatistics(CancellationToken cancellationToken = default);
+        Task<GetStatisticsOutputModel> GetStatisticsOutputModel(CancellationToken cancellationToken = default);
     }
 }

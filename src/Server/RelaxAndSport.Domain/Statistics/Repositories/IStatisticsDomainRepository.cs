@@ -10,5 +10,9 @@
         Task IncrementMassagesAppointments(CancellationToken cancellationToken = default);
 
         Task IncrementTrainingsAppointments(CancellationToken cancellationToken = default);
+
+        Task DecrementMassageAppointments(CancellationToken cancellationToken = default);
+
+        Task DecrementTrainingAppointments(CancellationToken cancellationToken = default);
     }
 }

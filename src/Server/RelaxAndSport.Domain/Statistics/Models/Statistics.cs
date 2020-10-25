@@ -19,5 +19,11 @@
 
         public void AddteTrainingAppointment()
             => this.TotalActiveTrainingAppointments++;
+
+        public void RemovedMassageAppointment()
+            => this.TotalActiveMassageAppointments--;
+
+        public void RemovedTrainingAppointment()
+            => this.TotalActiveTrainingAppointments--;
     }
 }

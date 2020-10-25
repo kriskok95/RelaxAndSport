@@ -1,6 +1,5 @@
 ﻿namespace RelaxAndSport.Domain.Booking.Models.Client
 {
-    using RelaxAndSport.Domain.Booking.Events;
     using RelaxAndSport.Domain.Booking.Models.MassagesAppointments;
     using RelaxAndSport.Domain.Booking.Models.TrainifngsAppointments;
     using RelaxAndSport.Domain.Common;
@@ -103,13 +102,11 @@
             }
 
             this.massageAppointments.Remove(massageAppointment);
-            this.RaiseEvent(new MassageAppointmentRemovedEvent());
         } 
 
         public void AddTrainingAppointment(TrainingAppointment trainingAppointment)
         {
             this.trainingAppointments.Add(trainingAppointment);
-            this.RaiseEvent(new TrainingAppointmentAddedEvent());
         }
 
         public void RemoveTrainingAppointment(TrainingAppointment trainingAppointment)
@@ -120,7 +117,6 @@
             }
 
             this.trainingAppointments.Remove(trainingAppointment);
-            this.RaiseEvent(new TrainingAppointmentRemovedEvent());
         }
 
         private void Validate(string firstName, string lastName)

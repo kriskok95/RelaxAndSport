@@ -15,7 +15,7 @@
                 => this.statisticsRepository = statisticsRepository;
 
             public async Task<GetStatisticsOutputModel> Handle(GetStatisticsQuery request, CancellationToken cancellationToken)
-                 => await this.statisticsRepository.GetStatistics(cancellationToken);
+                 => await this.statisticsRepository.GetStatisticsOutputModel(cancellationToken);
         }
     }
 }
