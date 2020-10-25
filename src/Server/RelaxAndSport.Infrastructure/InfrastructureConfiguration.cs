@@ -40,7 +40,8 @@
                             .MigrationsAssembly(typeof(RelaxAndSportDbContext).Assembly.FullName)))
                 .AddScoped<IBookingDbContext>(provider => provider.GetService<RelaxAndSportDbContext>())
                 .AddScoped<IStatisticsDbContext>(provider => provider.GetService<RelaxAndSportDbContext>())
-                .AddTransient<IInitializer, DatabaseInitializer>();
+                .AddTransient<IInitializer, DatabaseInitializer>()
+                .AddTransient<IDataSeeder, IdentityDataSeeder>();
 
         internal static IServiceCollection AddRepositories(this IServiceCollection services)
             => services

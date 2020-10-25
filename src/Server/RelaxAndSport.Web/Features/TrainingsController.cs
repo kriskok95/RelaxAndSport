@@ -1,6 +1,5 @@
 ﻿namespace RelaxAndSport.Web.Features
 {
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Create;
@@ -10,6 +9,7 @@
     using RelaxAndSport.Application.Booking.Trainings.Queries.Details;
     using RelaxAndSport.Application.Common;
     using RelaxAndSport.Web.Common;
+    using RelaxAndSport.Web.Common.Attributes;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -25,18 +25,18 @@
             => await this.Send(command.SetId(id));
 
         [HttpPost]
-        [Authorize]
+        [AuthorizeAdministrator]
         public async Task<ActionResult<CreateTrainingOutputModel>> Create(CreateTrainingCommand command)
             => await this.Send(command);
 
         [HttpPut]
-        [Authorize]
+        [AuthorizeAdministrator]
         [Route(Id)]
         public async Task<ActionResult> Edit(int id, EditTrainingCommand command)
             => await this.Send(command.SetId(id));
 
         [HttpDelete]
-        [Authorize]
+        [AuthorizeAdministrator]
         [Route(Id)]
         public async Task<ActionResult> Delete(int id, [FromQuery] DeleteTrainingCommand command)
             => await this.Send(command.SetId(id));

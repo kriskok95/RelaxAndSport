@@ -11,13 +11,16 @@
     {
         private readonly RelaxAndSportDbContext db;
         private readonly IEnumerable<IInitialData> initialDataProviders;
+        private readonly IEnumerable<IDataSeeder> dataSeeders;
 
         public DatabaseInitializer(
             RelaxAndSportDbContext db,
-            IEnumerable<IInitialData> initialDataProviders)
+            IEnumerable<IInitialData> initialDataProviders,
+            IEnumerable<IDataSeeder> dataSeeders)
         {
             this.db = db;
             this.initialDataProviders = initialDataProviders;
+            this.dataSeeders = dataSeeders;
         }
 
         public void Initialize()
@@ -35,6 +38,11 @@
                         this.db.Add(entity);
                     }
                 }
+            }
+
+            foreach (var seeder in this.dataSeeders)
+            {
+                seeder.SeedData();
             }
 
             this.db.SaveChanges();
