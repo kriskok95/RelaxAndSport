@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RelaxAndSport.Application\RelaxAndSport.Application.csproj" />
-    <ProjectReference Include="..\RelaxAndSport\RelaxAndSport.Domain.csproj" />
+    <ProjectReference Include="..\RelaxAndSport.Domain\RelaxAndSport.Domain.csproj" />
   </ItemGroup>
 
 </Project>
