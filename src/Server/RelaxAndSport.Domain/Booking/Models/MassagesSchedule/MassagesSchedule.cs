@@ -53,7 +53,7 @@
 
             if (isOverlapsed)
             {
-                throw new InvalidMassageAppointmentException($"Massage appointment with id {massageAppointment.Id} can't be added because it overlaps another massage appointment");
+                throw new InvalidMassageAppointmentException($"Massage appointment at {massageAppointment.TimeRange.Start} can't be added because it overlaps another scheduled massage appointment");
             }
         }
     }

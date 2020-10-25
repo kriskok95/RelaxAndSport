@@ -51,7 +51,7 @@
 
             if (isOverlapsed)
             {
-                throw new InvalidTrainingAppointmentException($"Training appointment with id {trainingAppointment.Id} can't be added because it overlaps another training appointment");
+                throw new InvalidTrainingAppointmentException($"Training appointment at {trainingAppointment.TimeRange.Start} can't be added because it overlaps another scheduled training appointment");
             }
         }
     }
