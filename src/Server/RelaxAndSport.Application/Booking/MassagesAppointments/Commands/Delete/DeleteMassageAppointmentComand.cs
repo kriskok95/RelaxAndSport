@@ -1,4 +1,4 @@
-﻿namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.DeleteMassageAppointment
+﻿namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Delete
 {
     using MediatR;
     using RelaxAndSport.Application.Common;

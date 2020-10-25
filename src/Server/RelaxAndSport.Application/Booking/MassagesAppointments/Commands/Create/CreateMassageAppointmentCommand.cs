@@ -1,8 +1,8 @@
-﻿namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.CreateMassageAppointment
+﻿namespace RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Create
 {
     using MediatR;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Common;
-    using RelaxAndSport.Application.Booking.MassagesSchedule;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.CreateMassageAppointment;
     using RelaxAndSport.Application.Common.Contracts;
     using RelaxAndSport.Domain.Booking.Factories.MassagesAppointments;
     using RelaxAndSport.Domain.Booking.Repositories;

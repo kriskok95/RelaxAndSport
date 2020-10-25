@@ -2,8 +2,9 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Create;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.CreateMassageAppointment;
-    using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.DeleteMassageAppointment;
+    using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Delete;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Commands.Edit;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Queries.Common;
     using RelaxAndSport.Application.Booking.MassagesAppointments.Queries.GetByDate;
