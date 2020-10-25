@@ -4,6 +4,7 @@
     using Microsoft.EntityFrameworkCore;
     using RelaxAndSport.Application.Booking.Trainings;
     using RelaxAndSport.Application.Booking.Trainings.Commands.Common;
+    using RelaxAndSport.Domain.Booking.Exceptions;
     using RelaxAndSport.Domain.Booking.Models.Trainings;
     using RelaxAndSport.Domain.Booking.Repositories;
     using RelaxAndSport.Infrastructure.Common.Persistence;
@@ -88,5 +89,21 @@
             .Data
             .Trainers
             .FirstOrDefaultAsync(t => t.FirstName == trainerFirstName && t.LastName == t.LastName);
+
+        public async Task ValidateTrainingExistence(Training training, CancellationToken cancellationToken)
+        {
+            var isTrainingExists = await this
+                .Data
+                .Trainings
+                .AnyAsync(t =>
+                    t.Category == training.Category &&
+                    t.Trainer == training.Trainer &&
+                    t.Date == training.Date, cancellationToken);
+
+            if (isTrainingExists)
+            {
+                throw new InvalidTrainingException("Training with the same category, trainer and date already exists.");
+            }
+        }
     }
 }

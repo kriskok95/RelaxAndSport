@@ -16,5 +16,7 @@
         Task<Trainer> GetTrainer(string trainerFirstName, string trainerLastName, CancellationToken cancellationToken);
 
         Task<Training> GetById(int id, CancellationToken cancellationToken = default);
+
+        Task ValidateTrainingExistence(Training training, CancellationToken cancellationToken);
     }
 }

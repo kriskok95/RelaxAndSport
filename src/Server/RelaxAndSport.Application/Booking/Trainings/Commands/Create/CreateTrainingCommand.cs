@@ -44,6 +44,7 @@
                     .WithIsRepeated(request.IsRepeated)
                     .Build();
 
+                await this.trainingsRepository.ValidateTrainingExistence(training, cancellationToken);
                 await this.trainingsRepository.Save(training, cancellationToken);
 
                 return new CreateTrainingOutputModel(training.Id);
