@@ -1,11 +1,27 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<Row Margin="Margin.Is4">
+    <Column ColumnSize="ColumnSize.Is10.Is1.WithOffset">
+        <Carousel @bind-SelectedSlide="@selectedSlide" ShowIndicators="true" ShowControls="true">
+            <CarouselSlide Name="1">
+                <Image Source="images/slides/massage-1.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="2">
+                <Image Source="images/slides/massage-2.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="3">
+                <Image Source="images/slides/massage-3.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="4">
+                <Image Source="images/slides/massage-4.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="5">
+                <Image Source="images/slides/massage-5.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+        </Carousel>
+    </Column>
+</Row>
 
-<div class="alert alert-warning" role="alert">
-    Before authentication will function correctly, you must configure your provider details in <code>Program.cs</code>
-</div>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code{ 
+    private string selectedSlide = "1";
+}

@@ -1,0 +1,59 @@
+﻿@layout RootLayout
+@inherits LayoutComponentBase
+
+<Container>
+    <Layout>
+        <LayoutHeader Fixed="true">
+            <Bar Class="nav-bar" Breakpoint="Breakpoint.Desktop" Background="Background.Primary" ThemeContrast="ThemeContrast.Dark">
+                <BarBrand>
+                    <BarItem>
+                        <BarLink To="">
+                            @*<BarIcon IconName="IconName.Dashboard" />*@
+                            Relax&Sport
+                        </BarLink>
+                    </BarItem>
+                </BarBrand>
+                <BarToggler />
+                <BarMenu>
+                    <BarStart>
+                        <BarItem>
+                            <BarLink To="/">Начало</BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/">Офис Масажи</BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/">Тренировки</BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/">Цени</BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarDropdown>
+                                <BarDropdownToggle>Още</BarDropdownToggle>
+                                <BarDropdownMenu>
+                                    <BarDropdownItem To="/">
+                                        Масаж 1
+                                    </BarDropdownItem>
+                                    <BarDropdownItem To="/">
+                                        Масаж 2
+                                    </BarDropdownItem>
+                                </BarDropdownMenu>
+                            </BarDropdown>
+                        </BarItem>
+                    </BarStart>
+                    <BarEnd>
+
+                    </BarEnd>
+                </BarMenu>
+            </Bar>
+        </LayoutHeader>
+        <LayoutContent Padding="Padding.Is4.OnX">
+            @Body
+        </LayoutContent>
+        <LayoutFooter>
+            <Bar Class="footer" Breakpoint="Breakpoint.Desktop" Background="Background.Primary" ThemeContrast="ThemeContrast.Light">
+            </Bar>
+        </LayoutFooter>
+    </Layout>
+</Container>

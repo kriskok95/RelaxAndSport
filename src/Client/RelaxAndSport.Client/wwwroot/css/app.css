@@ -30,6 +30,19 @@ a, .btn-link {
     color: red;
 }
 
+.nav-bar {
+    border-radius: 10px;
+}
+
+.footer {
+    border-radius: 10px;
+}
+
+.carousel-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
