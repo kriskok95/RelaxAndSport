@@ -22,33 +22,11 @@
     </Column>
 </Row>
 
-<Row Margin="Margin.Is4">
-    <Column>
-        <Carousel @bind-SelectedSlide="@selectedSlide" ShowIndicators="true" ShowControls="true">
-            <CarouselSlide Name="1">
-                <Image Source="images/slides/massage-1.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="2">
-                <Image Source="images/slides/massage-2.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="3">
-                <Image Source="images/slides/massage-3.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="4">
-                <Image Source="images/slides/massage-4.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="5">
-                <Image Source="images/slides/massage-5.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-        </Carousel>
-    </Column>
-</Row>
-
 <Row>
     <Column>
         <CardGroup>
-            <Card Margin="Margin.Is4.FromBottom">
-                <CardImage Source="images/cards/office-massage.jpg" Alt="Office Massage" Style="height: 250px;">
+            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+                <CardImage Source="images/cards/office-massage.jpg" Alt="Office Massage" Style="height: 250px; border-radius: 10px;">
                 </CardImage>
                 <CardBody>
                     <CardTitle Size="5">Масажи</CardTitle>
@@ -58,8 +36,8 @@
                 </CardBody>
                 <Button Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
             </Card>
-            <Card Margin="Margin.Is4.FromBottom">
-                <CardImage Source="images/cards/crossfit.jpg" Alt="Nutrition" Style="height: 250px;">
+            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+                <CardImage Source="images/cards/crossfit.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
                 </CardImage>
                 <CardBody>
                     <CardTitle Size="5">Тренировки</CardTitle>
@@ -69,8 +47,8 @@
                 </CardBody>
                 <Button Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
             </Card>
-            <Card Margin="Margin.Is4.FromBottom">
-                <CardImage Source="images/cards/nutrition.jpg" Alt="Nutrition" Style="height: 250px;">
+            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+                <CardImage Source="images/cards/nutrition.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
                 </CardImage>
                 <CardBody>
                     <CardTitle Size="5">Хранителни режими</CardTitle>
@@ -83,9 +61,3 @@
         </CardGroup>
     </Column>
 </Row>
-
-
-
-@code{
-    private string selectedSlide = "1";
-}
