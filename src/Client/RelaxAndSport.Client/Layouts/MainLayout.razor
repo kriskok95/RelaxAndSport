@@ -5,10 +5,13 @@
     <Layout>
         <LayoutHeader Fixed="true">
             <Bar Class="nav-bar" Breakpoint="Breakpoint.Desktop" Background="Background.Primary" ThemeContrast="ThemeContrast.Dark">
+                <BarItem>
+                    <Image Source="images/brand/brand-image.png" Style="height: 40px; width: 40px; border-radius: 5px;"></Image>
+                </BarItem>
                 <BarBrand>
                     <BarItem>
-                        <BarLink To="">
-                            Relax&Sport
+                        <BarLink To="/">
+                            GA Relax&Sport
                         </BarLink>
                     </BarItem>
                 </BarBrand>
@@ -19,22 +22,43 @@
                             <BarLink To="/">Начало</BarLink>
                         </BarItem>
                         <BarItem>
-                            <BarLink To="/office-massage">Офис Масажи</BarLink>
-                        </BarItem>
-                        <BarItem>
-                            <BarLink To="/massages">Масажи</BarLink>
-                        </BarItem>
-                        <BarItem>
-                            <BarLink To="/trainings">Тренировки</BarLink>
-                        </BarItem>
-                        <BarItem>
-                            <BarLink To="/nutrition">Хранителни режими</BarLink>
+                            <BarDropdown>
+                                <BarDropdownToggle>
+                                    Услуги
+                                </BarDropdownToggle>
+                                <BarDropdownMenu>
+                                    <BarDropdownItem To="/office-massage">
+                                        Офис Масажи
+                                    </BarDropdownItem>
+                                    <BarDropdownItem To="/office-gymnastic">
+                                        Офис Гимнастика
+                                    </BarDropdownItem>
+                                    <BarDropdownItem To="/massages">
+                                        Масажи
+                                    </BarDropdownItem>
+                                    <BarDropdownItem To="/rehabilitation">
+                                        Рехабилитация
+                                    </BarDropdownItem>
+                                    <BarDropdownItem To="/trainings">
+                                        Тренировки
+                                    </BarDropdownItem>
+                                    <BarDropdownItem To="/nutrition">
+                                        Хранителни Режими
+                                    </BarDropdownItem>
+                                </BarDropdownMenu>
+                            </BarDropdown>
                         </BarItem>
                         <BarItem>
                             <BarLink To="/pricing">Цени</BarLink>
                         </BarItem>
                         <BarItem>
                             <BarLink To="/images">Снимки</BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/about-us">За нас</BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/contacts">Контакти</BarLink>
                         </BarItem>
                     </BarStart>
                     <BarEnd>
