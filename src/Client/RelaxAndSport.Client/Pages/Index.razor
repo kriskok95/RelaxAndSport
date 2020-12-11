@@ -1,28 +1,49 @@
 ﻿@page "/"
+@*<Row Margin="Margin.Is4.FromTop">
+        <Column ColumnSize="ColumnSize.Is12.OnMobile">
+            <Jumbotron Background="Background.Transparent" Margin="Margin.Is4.FromBottom">
+                <JumbotronSubtitle>
+                    ОФИС МАСАЖ и РЕХАБИЛИТАЦИЯ
+                </JumbotronSubtitle>
+                <Divider></Divider>
+                <Paragraph>
+                    По-голямата част от човешкия живот преминава в работа. Това означава, че деловият ритъм и трудовата атмосфера, която създаваме около себе си до голяма степен предполагат КАЧЕСТВОТО НИ НА ЖИВОТ и се отразяват пряко на здравословното и емоционалното ни състояние.
 
-<Row Margin="Margin.Is4.FromTop">
-    <Column ColumnSize="ColumnSize.Is12.OnMobile">
-        <Jumbotron Background="Background.Transparent" Margin="Margin.Is4.FromBottom">
-            <JumbotronSubtitle>
-                ОФИС МАСАЖ и РЕХАБИЛИТАЦИЯ
-            </JumbotronSubtitle>
-            <Divider></Divider>
-            <Paragraph>
-                По-голямата част от човешкия живот преминава в работа. Това означава, че деловият ритъм и трудовата атмосфера, която създаваме около себе си до голяма степен предполагат КАЧЕСТВОТО НИ НА ЖИВОТ и се отразяват пряко на здравословното и емоционалното ни състояние.
+                    БОДИЛАЙФ Е ФИРМА, ЧИЯТО ОСНОВНА МИСИЯ Е ВАШЕТО ЗДРАВЕ.
 
-                БОДИЛАЙФ Е ФИРМА, ЧИЯТО ОСНОВНА МИСИЯ Е ВАШЕТО ЗДРАВЕ.
+                    Как го постигаме? С много работа, дългогодишен опит и стабилни традиции в обучението на всеки един наш терапевт. Ние вярваме, че опита е съвкупност от подготовка и мисъл, която минава през анализа и личното отношение.
 
-                Как го постигаме? С много работа, дългогодишен опит и стабилни традиции в обучението на всеки един наш терапевт. Ние вярваме, че опита е съвкупност от подготовка и мисъл, която минава през анализа и личното отношение.
+                    Нашата професионална дейност датира от 1998г. като офис масажа се включва през 2004г.
 
-                Нашата професионална дейност датира от 1998г. като офис масажа се включва през 2004г.
+                    Дейността ни е отговор на все по-напрегнатия и стресов начин на животи и за нас е щастие, когато успеем да подобрим Вашия!
+                </Paragraph>
+            </Jumbotron>
+        </Column>
+    </Row>*@
 
-                Дейността ни е отговор на все по-напрегнатия и стресов начин на животи и за нас е щастие, когато успеем да подобрим Вашия!
-            </Paragraph>
-        </Jumbotron>
+<Row Margin="Margin.Is4">
+    <Column ColumnSize="ColumnSize.Is12">
+        <Carousel @bind-SelectedSlide="@selectedSlide" ShowIndicators="true" ShowControls="true">
+            <CarouselSlide Name="1">
+                <Image Source="images/slides/massage-1.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="2">
+                <Image Source="images/slides/massage-2.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="3">
+                <Image Source="images/slides/massage-3.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="4">
+                <Image Source="images/slides/massage-4.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+            <CarouselSlide Name="5">
+                <Image Source="images/slides/massage-5.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+            </CarouselSlide>
+        </Carousel>
     </Column>
 </Row>
 
-<Row>
+<Row Margin="Margin.Is4.FromTop">
     <Column>
         <CardDeck>
             <Card Margin="Margin.Is3" Style="border-radius: 10px;">
@@ -56,8 +77,21 @@
                         Изготвяне на индивидуален хранителен режим спрямо вашите нужди. Всеки режим бива изготвен от квалифициран диетолог.
                     </CardText>
                 </CardBody>
-                <Button Type="ButtonType.Link" To="/nutrition" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>  
+                <Button Type="ButtonType.Link" To="/nutrition" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
             </Card>
         </CardDeck>
     </Column>
 </Row>
+
+<Row Margin="Margin.Is4.FromTop">
+    <Column>
+        <Image Source="images/multisport/multisport-card.png" Style="height: 250px; width: 450px; border-radius: 5px;"></Image>
+    </Column>
+    <Column>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </Column>
+</Row>
+
+@code{
+    private string selectedSlide = "1";
+}
