@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelaxAndSport.Web", "RelaxA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelaxAndSport.Domain", "RelaxAndSport.Domain\RelaxAndSport.Domain.csproj", "{AC4440B3-4C8A-4E62-AE0F-9261734FAC1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelaxAndSport.Client", "..\Client\RelaxAndSport.Client\RelaxAndSport.Client.csproj", "{D3E7B91E-F20E-418C-8BF0-BC78E59C96B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelaxAndSport.Client", "..\Client\RelaxAndSport.Client\RelaxAndSport.Client.csproj", "{D3E7B91E-F20E-418C-8BF0-BC78E59C96B8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{BB256F98-09A1-4886-970F-10798207D106}"
 EndProject
