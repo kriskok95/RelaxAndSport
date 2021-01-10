@@ -1,4 +1,19 @@
 ﻿@page "/"
+
+<h1>hellloooooo</h1>
+<section id="product-overview">
+    <h1>Запишете своя час за масаж още днес</h1>
+</section>
+@*<section id="services">
+    <div class="services__list">
+        <article class="service">
+            <img class="service__image" src="./images/office-massage/office-massage-info.jpg" alt="Office Massage" />
+            <h1 class="service__title">Офис масажи</h1>
+            <p class="service__description">Тук имате удоволствието да избирате от широка гама масажи. Предлагаме както офис масажи така и класически.</p>
+        </article>
+    </div>
+</section>*@
+
 @*<Row Margin="Margin.Is4.FromTop">
         <Column ColumnSize="ColumnSize.Is12.OnMobile">
             <Jumbotron Background="Background.Transparent" Margin="Margin.Is4.FromBottom">
@@ -21,77 +36,77 @@
         </Column>
     </Row>*@
 
-<Row Margin="Margin.Is4">
-    <Column ColumnSize="ColumnSize.Is12">
-        <Carousel @bind-SelectedSlide="@selectedSlide" ShowIndicators="true" ShowControls="true">
-            <CarouselSlide Name="1">
-                <Image Source="images/slides/massage-1.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="2">
-                <Image Source="images/slides/massage-2.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="3">
-                <Image Source="images/slides/massage-3.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="4">
-                <Image Source="images/slides/massage-4.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-            <CarouselSlide Name="5">
-                <Image Source="images/slides/massage-5.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
-            </CarouselSlide>
-        </Carousel>
-    </Column>
-</Row>
+@*<Row Margin="Margin.Is4">
+        <Column ColumnSize="ColumnSize.Is12">
+            <Carousel @bind-SelectedSlide="@selectedSlide" ShowIndicators="true" ShowControls="true">
+                <CarouselSlide Name="1">
+                    <Image Source="images/slides/massage-1.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+                </CarouselSlide>
+                <CarouselSlide Name="2">
+                    <Image Source="images/slides/massage-2.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+                </CarouselSlide>
+                <CarouselSlide Name="3">
+                    <Image Source="images/slides/massage-3.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+                </CarouselSlide>
+                <CarouselSlide Name="4">
+                    <Image Source="images/slides/massage-4.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+                </CarouselSlide>
+                <CarouselSlide Name="5">
+                    <Image Source="images/slides/massage-5.jpg" Text="Massage" Display="Display.Block" Style="width: 100%; border-radius: 10px;" />
+                </CarouselSlide>
+            </Carousel>
+        </Column>
+    </Row>
 
-<Row Margin="Margin.Is4.FromTop">
-    <Column>
-        <CardDeck>
-            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
-                <CardImage Source="images/cards/office-massage.jpg" Alt="Office Massage" Style="height: 250px; border-radius: 10px;">
-                </CardImage>
-                <CardBody>
-                    <CardTitle Size="5">Масажи</CardTitle>
-                    <CardText>
-                        Тук имате удоволствието да избирате от широка гама масажи. Предлагаме както офис масажи така и класически.
-                    </CardText>
-                </CardBody>
-                <Button Type="ButtonType.Link" To="/office-massage" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
-            </Card>
-            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
-                <CardImage Source="images/cards/crossfit.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
-                </CardImage>
-                <CardBody>
-                    <CardTitle Size="5">Тренировки</CardTitle>
-                    <CardText>
-                        Включете се в нашите групови тренировки провеждани от нашите опитни и доказали се треньори.
-                    </CardText>
-                </CardBody>
-                <Button Type="ButtonType.Link" To="/trainings" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
-            </Card>
-            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
-                <CardImage Source="images/cards/nutrition.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
-                </CardImage>
-                <CardBody>
-                    <CardTitle Size="5">Хранителни режими</CardTitle>
-                    <CardText>
-                        Изготвяне на индивидуален хранителен режим спрямо вашите нужди. Всеки режим бива изготвен от квалифициран диетолог.
-                    </CardText>
-                </CardBody>
-                <Button Type="ButtonType.Link" To="/nutrition" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
-            </Card>
-        </CardDeck>
-    </Column>
-</Row>
+    <Row Margin="Margin.Is4.FromTop">
+        <Column>
+            <CardDeck>
+                <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+                    <CardImage Source="images/cards/office-massage.jpg" Alt="Office Massage" Style="height: 250px; border-radius: 10px;">
+                    </CardImage>
+                    <CardBody>
+                        <CardTitle Size="5">Масажи</CardTitle>
+                        <CardText>
+                            Тук имате удоволствието да избирате от широка гама масажи. Предлагаме както офис масажи така и класически.
+                        </CardText>
+                    </CardBody>
+                    <Button Type="ButtonType.Link" To="/office-massage" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
+                </Card>
+                <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+                    <CardImage Source="images/cards/crossfit.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
+                    </CardImage>
+                    <CardBody>
+                        <CardTitle Size="5">Тренировки</CardTitle>
+                        <CardText>
+                            Включете се в нашите групови тренировки провеждани от нашите опитни и доказали се треньори.
+                        </CardText>
+                    </CardBody>
+                    <Button Type="ButtonType.Link" To="/trainings" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
+                </Card>
+                <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+                    <CardImage Source="images/cards/nutrition.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
+                    </CardImage>
+                    <CardBody>
+                        <CardTitle Size="5">Хранителни режими</CardTitle>
+                        <CardText>
+                            Изготвяне на индивидуален хранителен режим спрямо вашите нужди. Всеки режим бива изготвен от квалифициран диетолог.
+                        </CardText>
+                    </CardBody>
+                    <Button Type="ButtonType.Link" To="/nutrition" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
+                </Card>
+            </CardDeck>
+        </Column>
+    </Row>
 
-<Row Margin="Margin.Is4.FromTop">
-    <Column>
-        <Image Source="images/multisport/multisport-card.png" Style="height: 250px; width: 450px; border-radius: 5px;"></Image>
-    </Column>
-    <Column>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </Column>
-</Row>
+    <Row Margin="Margin.Is4.FromTop">
+        <Column>
+            <Image Source="images/multisport/multisport-card.png" Style="height: 250px; width: 450px; border-radius: 5px;"></Image>
+        </Column>
+        <Column>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </Column>
+    </Row>
 
-@code{
-    private string selectedSlide = "1";
-}
+    @code{
+        private string selectedSlide = "1";
+    }*@

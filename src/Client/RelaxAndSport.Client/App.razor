@@ -1,5 +1,5 @@
 <CascadingAuthenticationState>
-    <Blazorise.ThemeProvider Theme="@theme">
+    @*<Blazorise.ThemeProvider Theme="@theme">*@
         <Router AppAssembly="@typeof(Program).Assembly">
             <Found Context="routeData">
                 <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
@@ -21,10 +21,10 @@
                 </LayoutView>
             </NotFound>
         </Router>
-    </Blazorise.ThemeProvider>
+    @*</Blazorise.ThemeProvider>*@
 </CascadingAuthenticationState>
 
-@code{
+@*@code{
     private Theme theme = new Theme
     {
         BarOptions = new ThemeBarOptions
@@ -74,4 +74,4 @@
         //    Color = "#ff0000",
         //},
     };
-}
+}*@
