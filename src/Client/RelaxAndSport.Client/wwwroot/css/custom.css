@@ -1,0 +1,32 @@
+﻿h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.text-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.massage-benefits {
+    /*list-style: none;*/
+}
+
+.office-massage__images {
+    padding: 0;
+}
+
+.office-massage__Image {
+    display: inline;
+}
+
+.office-massage__Image img {
+    width: 100%;
+}
+
+@media(min-width: 40rem){
+    .office-massage__Image img {
+        width: 33%;
+        vertical-align: middle;
+    }
+
+}
