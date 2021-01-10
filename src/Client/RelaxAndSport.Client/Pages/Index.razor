@@ -21,7 +21,7 @@
         </Column>
     </Row>*@
 
-<Row Margin="Margin.Is4">
+@*<Row Margin="Margin.Is4">
     <Column ColumnSize="ColumnSize.Is12">
         <Carousel @bind-SelectedSlide="@selectedSlide" ShowIndicators="true" ShowControls="true">
             <CarouselSlide Name="1">
@@ -41,12 +41,12 @@
             </CarouselSlide>
         </Carousel>
     </Column>
-</Row>
+</Row>*@
 
 <Row Margin="Margin.Is4.FromTop">
-    <Column>
+    <Column Padding="Padding.Is0">
         <CardDeck>
-            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+            <Card Margin="Margin.Is3.OnY" Style="border-radius: 10px;">
                 <CardImage Source="images/cards/office-massage.jpg" Alt="Office Massage" Style="height: 250px; border-radius: 10px;">
                 </CardImage>
                 <CardBody>
@@ -57,7 +57,7 @@
                 </CardBody>
                 <Button Type="ButtonType.Link" To="/office-massage" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
             </Card>
-            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+            <Card Margin="Margin.Is3.OnY" Style="border-radius: 10px;">
                 <CardImage Source="images/cards/crossfit.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
                 </CardImage>
                 <CardBody>
@@ -68,7 +68,7 @@
                 </CardBody>
                 <Button Type="ButtonType.Link" To="/trainings" Margin="Margin.Is2" Color="Color.Warning">Научи повече</Button>
             </Card>
-            <Card Margin="Margin.Is3" Style="border-radius: 10px;">
+            <Card Margin="Margin.Is3.OnY" Style="border-radius: 10px;">
                 <CardImage Source="images/cards/nutrition.jpg" Alt="Nutrition" Style="height: 250px; border-radius: 10px;">
                 </CardImage>
                 <CardBody>
