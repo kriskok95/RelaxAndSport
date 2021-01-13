@@ -7,8 +7,14 @@
     text-align: center;
 }
 
+.page-main-image {
+    width: 100%;
+    height: 25vh;
+    margin: 1rem 0;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
 .massage-benefits {
-    /*list-style: none;*/
 }
 
 .office-massage__images {
@@ -19,14 +25,16 @@
     display: inline;
 }
 
-.office-massage__Image img {
-    width: 100%;
-}
+    .office-massage__Image img {
+        width: 100%;
+        margin-bottom: 1rem;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+    }
 
-@media(min-width: 40rem){
+@media(min-width: 40rem) {
     .office-massage__Image img {
         width: 33%;
         vertical-align: middle;
     }
-
 }
