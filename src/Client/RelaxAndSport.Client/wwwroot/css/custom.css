@@ -14,9 +14,6 @@
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.massage-benefits {
-}
-
 .office-massage__images {
     padding: 0;
 }
@@ -45,5 +42,16 @@
         width: 31%;
         vertical-align: middle;
         margin: 0 1rem;
+    }
+
+    .massage-description {
+        width: 50%;
+        margin: 1rem auto;
+        text-align: center;
+    }
+
+    .massage-benefits {
+        width: 45%;
+        margin: 1rem auto;
     }
 }
