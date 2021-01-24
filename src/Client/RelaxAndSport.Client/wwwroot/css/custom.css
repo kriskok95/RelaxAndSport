@@ -14,44 +14,4 @@
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.office-massage__images {
-    padding: 0;
-}
 
-.office-massage__Image {
-    display: inline;
-}
-
-    .office-massage__Image img {
-        width: 100%;
-        margin-bottom: 1rem;
-        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 50%;
-    }
-
-@media(min-width: 40rem) {
-    .page-main-image {
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-        height: auto;
-        display: block;
-    }
-
-    .office-massage__Image img {
-        width: 31%;
-        vertical-align: middle;
-        margin: 0 1rem;
-    }
-
-    .massage-description {
-        width: 50%;
-        margin: 1rem auto;
-        text-align: center;
-    }
-
-    .massage-benefits {
-        width: 45%;
-        margin: 1rem auto;
-    }
-}
